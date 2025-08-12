@@ -9,7 +9,6 @@ import kotlinx.coroutines.launch
 
 class CharactersViewModel : ViewModel() {
     private val repository = CharacterRepository()
-
     private val _uiState = MutableStateFlow<CharacterUiState>(CharacterUiState.Loading)
     val uiState: StateFlow<CharacterUiState> = _uiState
 
@@ -17,12 +16,20 @@ class CharactersViewModel : ViewModel() {
         fetchCharacters()
     }
 
-    private fun fetchCharacters() {
+    private fun fetchCharacters(limit: Int = 50) {
         viewModelScope.launch {
             try {
-                val response = repository.getCharacters(limit = 50)
-                _uiState.value = CharacterUiState.Success(response.items)
+                val response = repository.getCharacters(limit)
+                if (response.items.isEmpty()) {
+                    _uiState.value = CharacterUiState.Empty
+                } else {
+                    _uiState.value = CharacterUiState.Success(response.items)
+                }
             } catch (e: Exception) {
+                val errorMessage = when (e) {
+                    is java.net.UnknownHostException -> "No internet connection"
+                    else -> e.localizedMessage ?: "Unknown error"
+                }
                 _uiState.value = CharacterUiState.Error(e.localizedMessage ?: "Unknown error")
             }
         }
