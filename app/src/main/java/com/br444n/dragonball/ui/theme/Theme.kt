@@ -1,6 +1,5 @@
 package com.br444n.dragonball.ui.theme
 
-import android.graphics.Color
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme

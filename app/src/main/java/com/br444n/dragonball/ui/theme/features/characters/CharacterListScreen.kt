@@ -32,6 +32,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -42,11 +43,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.br444n.dragonball.R
 import com.br444n.dragonball.data.remote.models.Character
+import com.br444n.dragonball.ui.theme.Orange2
+import com.br444n.dragonball.ui.theme.Red
 
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalFoundationApi::class)
 @Composable
@@ -72,13 +76,20 @@ fun CharacterListScreen(
                                 .clip(CircleShape)
                         )
                         Spacer(Modifier.width(8.dp))
-                        Text("Dragon Explorer", style = MaterialTheme.typography.titleLarge)
+                        Text(
+                            "Dragon Explorer", style = MaterialTheme.typography.titleLarge,
+                            fontWeight = FontWeight.Bold
+                        )
                     }
                 },
+                colors = TopAppBarDefaults.topAppBarColors(
+                    containerColor = Orange2,
+                    titleContentColor = Red
+                ),
                 actions = {
                     Box {
                         IconButton(onClick = { menuExpand = true }) {
-                            Icon(Icons.Default.MoreVert, contentDescription = "Menu")
+                            Icon(Icons.Default.MoreVert, contentDescription = "Menu", tint = Red)
                         }
                         DropdownMenu(
                             expanded = menuExpand,
@@ -99,7 +110,7 @@ fun CharacterListScreen(
                         }
                     }
                     IconButton(onClick = onSettingsClick) {
-                        Icon(Icons.Default.Settings, contentDescription = "Settings")
+                        Icon(Icons.Default.Settings, contentDescription = "Settings", tint = Red)
                     }
                 }
             )
