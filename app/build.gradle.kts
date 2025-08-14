@@ -82,4 +82,7 @@ android {
 
         //Lottie
         implementation(libs.lottie)
+
+        //SplashScreen
+        implementation(libs.splashScreen)
     }

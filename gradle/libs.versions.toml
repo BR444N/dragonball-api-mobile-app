@@ -23,6 +23,8 @@ coroutines = "1.10.2"
 coil = "2.7.0"
 #Lottie
 lottie = "6.6.7"
+#SplashScreen
+splashScreen = "1.0.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -63,6 +65,10 @@ coil = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil" }
 
 #Lottie
 lottie = { group = "com.airbnb.android", name = "lottie-compose", version.ref = "lottie" }
+
+#SplashScreen
+splashScreen = { group = "androidx.core", name = "splashscreen", version.ref = "splashScreen" }
+
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
