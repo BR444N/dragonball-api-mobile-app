@@ -36,7 +36,6 @@ import androidx.compose.material3.PlainTooltip
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TooltipBox
-import androidx.compose.material3.TooltipDefaults
 import androidx.compose.material3.TooltipState
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
@@ -54,10 +53,16 @@ import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.TileMode
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.IntOffset
+import androidx.compose.ui.unit.IntRect
+import androidx.compose.ui.unit.IntSize
+import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.window.PopupPositionProvider
 import coil.compose.AsyncImage
 import com.br444n.dragonball.R
 import com.br444n.dragonball.data.remote.models.Character
@@ -75,6 +80,7 @@ fun CharacterListScreen(
     var menuExpand by remember { mutableStateOf(false) }
 
     val listState = rememberLazyListState()
+    val density = LocalDensity.current
 
     Scaffold(
         topBar = {
@@ -102,7 +108,25 @@ fun CharacterListScreen(
                 actions = {
                     Box {
                         TooltipBox(
-                            positionProvider = TooltipDefaults.rememberPlainTooltipPositionProvider(),
+                            positionProvider = object : PopupPositionProvider {
+                                override fun calculatePosition(
+                                    anchorBounds: IntRect,
+                                    windowSize: IntSize,
+                                    layoutDirection: LayoutDirection,
+                                    popupContentSize: IntSize
+                                ): IntOffset {
+                                    val spacingPx = with(density) { 4.dp.toPx().toInt() }
+                                    val x =
+                                        anchorBounds.left + (anchorBounds.width - popupContentSize.width) / 2
+                                    val y = anchorBounds.bottom + spacingPx
+                                    // Ajusta para no salir de la pantalla (opcional, pero recomendado)
+                                    val adjustedX =
+                                        x.coerceIn(0, windowSize.width - popupContentSize.width)
+                                    val adjustedY =
+                                        y.coerceAtMost(windowSize.height - popupContentSize.height)
+                                    return IntOffset(adjustedX, adjustedY)
+                                }
+                            },
                             tooltip = {
                                 PlainTooltip {
                                     Text("Menu")
@@ -155,7 +179,25 @@ fun CharacterListScreen(
                         }
                     }
                     TooltipBox(
-                        positionProvider = TooltipDefaults.rememberPlainTooltipPositionProvider(),
+                        positionProvider = object : PopupPositionProvider {
+                            override fun calculatePosition(
+                                anchorBounds: IntRect,
+                                windowSize: IntSize,
+                                layoutDirection: LayoutDirection,
+                                popupContentSize: IntSize
+                            ): IntOffset {
+                                val spacingPx = with(density) { 4.dp.toPx().toInt() }
+                                val x =
+                                    anchorBounds.left + (anchorBounds.width - popupContentSize.width) / 2
+                                val y = anchorBounds.bottom + spacingPx
+                                // Ajusta para no salir de la pantalla
+                                val adjustedX =
+                                    x.coerceIn(0, windowSize.width - popupContentSize.width)
+                                val adjustedY =
+                                    y.coerceAtMost(windowSize.height - popupContentSize.height)
+                                return IntOffset(adjustedX, adjustedY)
+                            }
+                        },
                         tooltip = {
                             PlainTooltip {
                                 Text("Settings")
