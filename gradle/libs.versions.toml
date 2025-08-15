@@ -8,6 +8,7 @@ espressoCore = "3.7.0"
 lifecycleRuntimeKtx = "2.9.2"
 activityCompose = "1.10.1"
 composeBom = "2025.07.00"
+material = "1.12.0"
 
 #MaterialIconsExtended
 materialIconsExtended = "1.7.8"
@@ -42,6 +43,8 @@ androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-man
 androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
 
+android-material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+
 #MaterialIconsExtended
 androidx-compose-material-icons-extended = { group = "androidx.compose.material", name = "material-icons-extended", version.ref = "materialIconsExtended" }
 
@@ -67,7 +70,7 @@ coil = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil" }
 lottie = { group = "com.airbnb.android", name = "lottie-compose", version.ref = "lottie" }
 
 #SplashScreen
-splashScreen = { group = "androidx.core", name = "splashscreen", version.ref = "splashScreen" }
+splashScreen = { group = "androidx.core", name = "core-splashscreen", version.ref = "splashScreen" }
 
 
 [plugins]

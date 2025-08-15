@@ -7,4 +7,15 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- Colores para pintar SplashScreen -->
+    <color name="radar_body_color">#4CAF50</color> <!-- Verde para el cuerpo -->
+    <color name="radar_screen_color">#4CAF50</color> <!-- Verde claro para la pantalla -->
+    <color name="radar_point_color">#D32F2F</color> <!-- Rojo para los puntos -->
+    <color name="radar_border_color">#212121</color> <!-- Gris oscuro para el borde -->
+    <color name="radar_metal_color">#B0BEC5</color> <!-- Gris plateado para el contorno metálico -->
+    <color name="radar_rej_color">#FBBC42</color> <!-- Gris plateado para el contorno metálico -->
+    <color name="ball_color">#FF8700</color> <!-- Gris plateado para el contorno metálico -->
+    <color name="star_color">#800d00</color> <!-- Rojo para las estrellas  -->
+
 </resources>
