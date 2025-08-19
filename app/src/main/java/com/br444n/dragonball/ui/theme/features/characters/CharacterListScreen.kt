@@ -75,7 +75,8 @@ import com.br444n.dragonball.ui.theme.Red
 fun CharacterListScreen(
     characters: List<Character>,
     onSettingsClick: () -> Unit,
-    onMenuItemClick: (String) -> Unit
+    onMenuItemClick: (String) -> Unit,
+    onCharacterClick: (String) -> Unit // Nuevo parámetro
 ) {
     var menuExpand by remember { mutableStateOf(false) }
 
@@ -228,22 +229,31 @@ fun CharacterListScreen(
             horizontalArrangement = Arrangement.Center
         ) {
             items(characters.size) { index ->
+                val character = characters[index]
                 Box(
                     modifier = Modifier
                         .fillParentMaxSize()  // El card ocupará toda la pantalla
                         .padding(16.dp),
                     contentAlignment = Alignment.Center
                 ) {
-                    CharacterCardFullScreen(character = characters[index])
+                    CharacterCardFullScreen(
+                        character = character,
+                        onClick = { onCharacterClick(character.id.toString()) } // Pasa el ID
+                    )
                 }
             }
         }
     }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun CharacterCardFullScreen(character: Character) {
+fun CharacterCardFullScreen(
+    character: Character,
+    onClick: () -> Unit // Nuevo parámetro
+) {
     Card(
+        onClick = onClick, // Usa el nuevo parámetro
         modifier = Modifier
             .fillMaxSize(),
         shape = RoundedCornerShape(16.dp),
