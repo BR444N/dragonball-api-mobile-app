@@ -78,7 +78,9 @@ fun AppNavigation() {
             SettingsScreen()
         }
         composable(AppScreen.Planets.route) {
-            PlanetsScreen()
+            PlanetsScreen(
+                onBackClick = { navController.navigate(AppScreen.CharacterList.route) }
+            )
         }
         composable(AppScreen.Transformations.route) {
             TransformationsScreen()

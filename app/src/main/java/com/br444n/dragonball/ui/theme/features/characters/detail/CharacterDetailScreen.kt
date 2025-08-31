@@ -44,11 +44,7 @@ fun CharacterDetailScreen(
                     else -> "Character Details"
                 },
                 onBackClick = onBackClick,
-                titleColor = when (uiState) {
-                    is CharacterDetailUiState.Success -> Red
-                    is CharacterDetailUiState.Error -> MaterialTheme.colorScheme.error
-                    else -> MaterialTheme.colorScheme.onSurface
-                }
+                titleColor = Red
             )
         }
     ) { paddingValues ->

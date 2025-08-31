@@ -37,6 +37,8 @@ import coil.compose.AsyncImage
 import com.br444n.dragonball.data.remote.models.Character
 import com.br444n.dragonball.ui.components.DragonBallAppBar
 import com.br444n.dragonball.ui.theme.Gold
+import com.br444n.dragonball.ui.theme.Orange
+import com.br444n.dragonball.ui.theme.Orange2
 
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalFoundationApi::class)
 @Composable
@@ -137,6 +139,7 @@ fun CharacterCardFullScreen(
             Spacer(modifier = Modifier.height(12.dp))
             Text(
                 text = character.name,
+                color = Orange,
                 style = MaterialTheme.typography.headlineMedium,
                 modifier = Modifier.padding(horizontal = 16.dp),
                 textAlign = TextAlign.Center,
@@ -146,13 +149,17 @@ fun CharacterCardFullScreen(
                 text = "Race: ${character.race ?: "Unknown"}",
                 style = MaterialTheme.typography.bodyMedium,
                 modifier = Modifier.padding(horizontal = 16.dp),
-                textAlign = TextAlign.Center
+                textAlign = TextAlign.Center,
+                color = Orange2,
+                fontWeight = FontWeight.Medium
             )
             Text(
                 text = "Affiliation: ${character.affiliation ?: "Unknown"}",
                 style = MaterialTheme.typography.bodyMedium,
                 modifier = Modifier.padding(horizontal = 16.dp, vertical = 12.dp),
-                textAlign = TextAlign.Center
+                textAlign = TextAlign.Center,
+                color = Gold,
+                fontWeight = FontWeight.Normal
             )
         }
     }

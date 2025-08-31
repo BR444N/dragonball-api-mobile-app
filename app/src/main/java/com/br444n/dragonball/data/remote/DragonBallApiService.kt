@@ -1,6 +1,7 @@
 package com.br444n.dragonball.data.remote
 
 import com.br444n.dragonball.data.remote.models.CharactersResponse
+import com.br444n.dragonball.data.remote.models.PlanetsResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -10,4 +11,10 @@ interface DragonBallApiService {
         @Query("limit") limit: Int = 58,
         @Query("offset") offset: Int = 0
     ): CharactersResponse
+
+    @GET("planets")
+    suspend fun getPlanets(
+        @Query("limit") limit: Int = 20,
+        @Query("offset") offset: Int = 0
+    ): PlanetsResponse
 }
