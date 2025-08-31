@@ -7,7 +7,7 @@ import retrofit2.http.Query
 interface DragonBallApiService {
     @GET("characters")
     suspend fun getCharacters(
-        @Query("limit") limit: Int = 50,
+        @Query("limit") limit: Int = 58,
         @Query("offset") offset: Int = 0
     ): CharactersResponse
 }

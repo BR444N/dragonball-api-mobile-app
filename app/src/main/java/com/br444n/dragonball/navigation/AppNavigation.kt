@@ -40,9 +40,8 @@ fun AppNavigation() {
                     }
                 }
                 is CharacterUiState.Success -> {
-                    val characters = (uiState as CharacterUiState.Success).characters
                     CharacterListScreen(
-                        characters = characters,
+                        characters = (uiState as CharacterUiState.Success).characters,
                         onSettingsClick = { navController.navigate(AppScreen.Settings.route) },
                         onMenuItemClick = { route ->
                             when (route) {
@@ -53,16 +52,16 @@ fun AppNavigation() {
                         },
                         onCharacterClick = { characterId ->
                             navController.navigate(AppScreen.CharacterDetail.createRoute(characterId))
-                        }
+                        },
+
                     )
                 }
                 is CharacterUiState.Error -> {
-                    val message = (uiState as CharacterUiState.Error).message
                     Box(
                         modifier = Modifier.fillMaxSize(),
                         contentAlignment = Alignment.Center
                     ) {
-                        Text(text = "Error: $message", color = Color.Red)
+                        Text(text = "Error: ${(uiState as CharacterUiState.Error).message}", color = Color.Red)
                     }
                 }
                 is CharacterUiState.Empty -> {

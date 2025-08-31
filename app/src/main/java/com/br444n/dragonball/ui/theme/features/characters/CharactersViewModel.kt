@@ -16,10 +16,10 @@ class CharactersViewModel : ViewModel() {
         fetchCharacters()
     }
 
-    private fun fetchCharacters(limit: Int = 50) {
+    private fun fetchCharacters() {
         viewModelScope.launch {
             try {
-                val response = repository.getCharacters(limit)
+                val response = repository.getCharacters(58, 0)
                 if (response.items.isEmpty()) {
                     _uiState.value = CharacterUiState.Empty
                 } else {
@@ -28,10 +28,15 @@ class CharactersViewModel : ViewModel() {
             } catch (e: Exception) {
                 val errorMessage = when (e) {
                     is java.net.UnknownHostException -> "No internet connection"
+                    is java.net.SocketTimeoutException -> "Connection timeout"
                     else -> e.localizedMessage ?: "Unknown error"
                 }
-                _uiState.value = CharacterUiState.Error(e.localizedMessage ?: "Unknown error")
+                _uiState.value = CharacterUiState.Error(errorMessage)
             }
         }
+    }
+
+    fun refreshCharacters() {
+        fetchCharacters()
     }
 }

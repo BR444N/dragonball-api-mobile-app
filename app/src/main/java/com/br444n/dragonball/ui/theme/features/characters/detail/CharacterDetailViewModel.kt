@@ -2,7 +2,6 @@ package com.br444n.dragonball.ui.theme.features.characters.detail
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.br444n.dragonball.data.remote.models.Character
 import com.br444n.dragonball.data.remote.repository.CharacterRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -18,8 +17,8 @@ class CharacterDetailViewModel : ViewModel() {
         
         viewModelScope.launch {
             try {
-                // Como la API actual no tiene endpoint individual, buscaremos en la lista
-                val response = repository.getCharacters(50, 0)
+                // Como la API actual no tiene endpoint individual, buscaremos en la lista completa
+                val response = repository.getCharacters(58, 0)
                 val character = response.items.find { it.id.toString() == characterId }
                 
                 if (character != null) {

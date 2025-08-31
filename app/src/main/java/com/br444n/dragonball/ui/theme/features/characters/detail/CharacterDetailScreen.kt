@@ -4,7 +4,6 @@ import android.os.Build
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.*
@@ -46,7 +45,7 @@ fun CharacterDetailScreen(
                 },
                 onBackClick = onBackClick,
                 titleColor = when (uiState) {
-                    is CharacterDetailUiState.Success -> Gold
+                    is CharacterDetailUiState.Success -> Red
                     is CharacterDetailUiState.Error -> MaterialTheme.colorScheme.error
                     else -> MaterialTheme.colorScheme.onSurface
                 }
@@ -197,7 +196,7 @@ private fun CharacterDetailContent(
                 style = MaterialTheme.typography.headlineLarge,
                 fontWeight = FontWeight.Bold,
                 textAlign = TextAlign.Center,
-                color = Gold
+                color = Orange
             )
 
             Spacer(modifier = Modifier.height(24.dp))
@@ -246,7 +245,8 @@ private fun CharacterDetailContent(
                         Text(
                             text = character.description,
                             style = MaterialTheme.typography.bodyMedium,
-                            lineHeight = MaterialTheme.typography.bodyMedium.lineHeight * 1.4
+                            lineHeight = MaterialTheme.typography.bodyMedium.lineHeight * 1.4,
+                            color = Gold
                         )
                     }
                 }
@@ -291,12 +291,13 @@ private fun CharacterInfoCard(
                         text = "$label:",
                         style = MaterialTheme.typography.bodyMedium,
                         fontWeight = FontWeight.Medium,
-                        modifier = Modifier.weight(1f)
+                        modifier = Modifier.weight(1f),
+                        color = Gold
                     )
                     Text(
                         text = value,
                         style = MaterialTheme.typography.bodyMedium,
-                        color = MaterialTheme.colorScheme.primary,
+                        color = Orange2,
                         modifier = Modifier.weight(1f),
                         textAlign = TextAlign.End
                     )
