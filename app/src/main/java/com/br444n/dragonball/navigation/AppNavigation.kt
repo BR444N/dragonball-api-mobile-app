@@ -87,7 +87,10 @@ fun AppNavigation() {
         composable(AppScreen.CharacterDetail.route) { backStackEntry ->
             val characterId = backStackEntry.arguments?.getString("characterId")
             if (characterId != null) {
-                CharacterDetailScreen(characterId = characterId)
+                CharacterDetailScreen(
+                    characterId = characterId,
+                    onBackClick = { navController.popBackStack() }
+                )
             }
         }
     }
