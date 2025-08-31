@@ -35,8 +35,4 @@ class CharactersViewModel : ViewModel() {
             }
         }
     }
-
-    fun refreshCharacters() {
-        fetchCharacters()
-    }
 }
