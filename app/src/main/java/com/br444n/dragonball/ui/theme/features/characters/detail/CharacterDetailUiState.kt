@@ -6,4 +6,5 @@ sealed class CharacterDetailUiState {
     object Loading : CharacterDetailUiState()
     data class Success(val character: Character) : CharacterDetailUiState()
     data class Error(val message: String) : CharacterDetailUiState()
+    object NoInternetConnection : CharacterDetailUiState()
 }

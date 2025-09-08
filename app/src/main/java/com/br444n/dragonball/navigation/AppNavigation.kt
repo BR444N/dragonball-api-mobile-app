@@ -16,6 +16,8 @@ import androidx.navigation.compose.rememberNavController
 import com.br444n.dragonball.ui.theme.features.characters.CharacterListScreen
 import com.br444n.dragonball.ui.theme.features.characters.CharacterUiState
 import com.br444n.dragonball.ui.theme.features.characters.CharactersViewModel
+import com.br444n.dragonball.ui.components.ErrorUiState
+import com.br444n.dragonball.ui.components.NoInternetConnectionState
 import com.br444n.dragonball.ui.theme.features.characters.detail.CharacterDetailScreen
 import com.br444n.dragonball.ui.theme.features.planets.PlanetsScreen
 import com.br444n.dragonball.ui.theme.features.settings.SettingsScreen
@@ -57,12 +59,15 @@ fun AppNavigation() {
                     )
                 }
                 is CharacterUiState.Error -> {
-                    Box(
-                        modifier = Modifier.fillMaxSize(),
-                        contentAlignment = Alignment.Center
-                    ) {
-                        Text(text = "Error: ${(uiState as CharacterUiState.Error).message}", color = Color.Red)
-                    }
+                    ErrorUiState(
+                        errorMessage = (uiState as CharacterUiState.Error).message,
+                        onRetryClick = { charactersViewModel.retry() }
+                    )
+                }
+                is CharacterUiState.NoInternetConnection -> {
+                    NoInternetConnectionState(
+                        onRefreshClick = { charactersViewModel.retry() }
+                    )
                 }
                 is CharacterUiState.Empty -> {
                     Box(

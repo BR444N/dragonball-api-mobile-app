@@ -17,6 +17,7 @@ class PlanetsViewModel : ViewModel() {
     }
 
     private fun fetchPlanets() {
+        _uiState.value = PlanetUiState.Loading
         viewModelScope.launch {
             try {
                 val response = repository.getPlanets(20, 0)
@@ -26,17 +27,27 @@ class PlanetsViewModel : ViewModel() {
                     _uiState.value = PlanetUiState.Success(response.items)
                 }
             } catch (e: Exception) {
-                val errorMessage = when (e) {
-                    is java.net.UnknownHostException -> "No internet connection"
-                    is java.net.SocketTimeoutException -> "Connection timeout"
-                    else -> e.localizedMessage ?: "Unknown error"
+                when (e) {
+                    is java.net.UnknownHostException -> {
+                        _uiState.value = PlanetUiState.NoInternetConnection
+                    }
+                    else -> {
+                        val errorMessage = when (e) {
+                            is java.net.SocketTimeoutException -> "Connection timeout"
+                            else -> e.localizedMessage ?: "Unknown error"
+                        }
+                        _uiState.value = PlanetUiState.Error(errorMessage)
+                    }
                 }
-                _uiState.value = PlanetUiState.Error(errorMessage)
             }
         }
     }
 
     fun refreshPlanets() {
+        fetchPlanets()
+    }
+
+    fun retry() {
         fetchPlanets()
     }
 }

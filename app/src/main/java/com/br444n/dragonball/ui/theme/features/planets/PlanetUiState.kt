@@ -7,4 +7,5 @@ sealed class PlanetUiState {
     data class Success(val planets: List<Planet>) : PlanetUiState()
     data class Error(val message: String) : PlanetUiState()
     object Empty : PlanetUiState()
+    object NoInternetConnection : PlanetUiState()
 }

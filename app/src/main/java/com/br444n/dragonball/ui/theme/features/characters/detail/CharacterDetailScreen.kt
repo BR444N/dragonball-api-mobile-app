@@ -20,6 +20,8 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.AsyncImage
 import com.br444n.dragonball.data.remote.models.Character
 import com.br444n.dragonball.ui.components.CharacterDetailAppBar
+import com.br444n.dragonball.ui.components.ErrorUiState
+import com.br444n.dragonball.ui.components.NoInternetConnectionState
 import com.br444n.dragonball.ui.theme.*
 import com.br444n.dragonball.utils.LoadingAnimation
 
@@ -59,49 +61,28 @@ fun CharacterDetailScreen(
                     LoadingAnimation()
                 }
             }
+
             is CharacterDetailUiState.Success -> {
                 CharacterDetailContent(
                     character = (uiState as CharacterDetailUiState.Success).character,
                     paddingValues = paddingValues
                 )
             }
+
             is CharacterDetailUiState.Error -> {
-                Box(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .padding(paddingValues),
-                    contentAlignment = Alignment.Center
-                ) {
-                    Column(
-                        horizontalAlignment = Alignment.CenterHorizontally,
-                        modifier = Modifier.padding(24.dp)
-                    ) {
-                        Text(
-                            text = "Error: ${(uiState as CharacterDetailUiState.Error).message}",
-                            color = MaterialTheme.colorScheme.error,
-                            style = MaterialTheme.typography.bodyLarge,
-                            textAlign = TextAlign.Center
-                        )
-                        Spacer(modifier = Modifier.height(16.dp))
-                        Row(
-                            horizontalArrangement = Arrangement.spacedBy(12.dp)
-                        ) {
-                            Button(
-                                onClick = { viewModel.retry(characterId) },
-                                colors = ButtonDefaults.buttonColors(
-                                    containerColor = Orange
-                                )
-                            ) {
-                                Text("Retry")
-                            }
-                            if (onBackClick != null) {
-                                OutlinedButton(onClick = onBackClick) {
-                                    Text("Go Back")
-                                }
-                            }
-                        }
-                    }
-                }
+                ErrorUiState(
+                    errorMessage = (uiState as CharacterDetailUiState.Error).message,
+                    onRetryClick = { viewModel.retry(characterId) },
+                    onBackClick = onBackClick,
+                    modifier = Modifier.padding(paddingValues)
+                )
+            }
+
+            is CharacterDetailUiState.NoInternetConnection -> {
+                NoInternetConnectionState(
+                    onRefreshClick = { viewModel.retry(characterId) },
+                    modifier = Modifier.padding(paddingValues)
+                )
             }
         }
     }
@@ -275,8 +256,8 @@ private fun CharacterInfoCard(
                 color = Orange
             )
             Spacer(modifier = Modifier.height(16.dp))
-            
-            items.forEach { (label, value) ->
+
+                items.forEach { (label, value) ->
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()

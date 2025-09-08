@@ -23,8 +23,9 @@ import coil.compose.AsyncImage
 import com.br444n.dragonball.data.remote.models.Planet
 import com.br444n.dragonball.ui.theme.*
 import com.br444n.dragonball.utils.LoadingAnimation
-
 import com.br444n.dragonball.ui.components.CharacterDetailAppBar
+import com.br444n.dragonball.ui.components.ErrorUiState
+import com.br444n.dragonball.ui.components.NoInternetConnectionState
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -62,33 +63,18 @@ fun PlanetsScreen(
                 )
             }
             is PlanetUiState.Error -> {
-                Box(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .padding(paddingValues),
-                    contentAlignment = Alignment.Center
-                ) {
-                    Column(
-                        horizontalAlignment = Alignment.CenterHorizontally,
-                        modifier = Modifier.padding(24.dp)
-                    ) {
-                        Text(
-                            text = "Error: ${(uiState as PlanetUiState.Error).message}",
-                            color = MaterialTheme.colorScheme.error,
-                            style = MaterialTheme.typography.bodyLarge,
-                            textAlign = TextAlign.Center
-                        )
-                        Spacer(modifier = Modifier.height(16.dp))
-                        Button(
-                            onClick = { viewModel.refreshPlanets() },
-                            colors = ButtonDefaults.buttonColors(
-                                containerColor = Orange
-                            )
-                        ) {
-                            Text("Retry")
-                        }
-                    }
-                }
+                ErrorUiState(
+                    errorMessage = (uiState as PlanetUiState.Error).message,
+                    onRetryClick = { viewModel.retry() },
+                    onBackClick = onBackClick,
+                    modifier = Modifier.padding(paddingValues)
+                )
+            }
+            is PlanetUiState.NoInternetConnection -> {
+                NoInternetConnectionState(
+                    onRefreshClick = { viewModel.retry() },
+                    modifier = Modifier.padding(paddingValues)
+                )
             }
             is PlanetUiState.Empty -> {
                 Box(

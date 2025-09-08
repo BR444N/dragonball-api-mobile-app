@@ -27,12 +27,18 @@ class CharacterDetailViewModel : ViewModel() {
                     _uiState.value = CharacterDetailUiState.Error("Character not found")
                 }
             } catch (e: Exception) {
-                val errorMessage = when (e) {
-                    is java.net.UnknownHostException -> "No internet connection"
-                    is java.net.SocketTimeoutException -> "Connection timeout"
-                    else -> e.localizedMessage ?: "Unknown error occurred"
+                when (e) {
+                    is java.net.UnknownHostException -> {
+                        _uiState.value = CharacterDetailUiState.NoInternetConnection
+                    }
+                    else -> {
+                        val errorMessage = when (e) {
+                            is java.net.SocketTimeoutException -> "Connection timeout"
+                            else -> e.localizedMessage ?: "Unknown error occurred"
+                        }
+                        _uiState.value = CharacterDetailUiState.Error(errorMessage)
+                    }
                 }
-                _uiState.value = CharacterDetailUiState.Error(errorMessage)
             }
         }
     }
