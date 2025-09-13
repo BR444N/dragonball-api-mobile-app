@@ -16,6 +16,21 @@ import com.br444n.dragonball.data.remote.models.Transformation
 import com.br444n.dragonball.ui.theme.Gold
 import com.br444n.dragonball.ui.theme.Orange
 
+// Configuración de texto basada en longitud del nombre
+private data class TextConfig(
+    val style: androidx.compose.ui.text.TextStyle,
+    val maxLines: Int
+)
+
+@Composable
+private fun getTextConfig(name: String): TextConfig = when {
+    name.length <= 12 -> TextConfig(MaterialTheme.typography.bodyLarge, 2)
+    name.length <= 20 -> TextConfig(MaterialTheme.typography.bodyMedium, 2)
+    name.length <= 30 -> TextConfig(MaterialTheme.typography.bodySmall, 3)
+    else -> TextConfig(MaterialTheme.typography.labelMedium, 3)
+}
+
+
 @Composable
 fun TransformationCard(transformation: Transformation) {
     Card(
@@ -40,9 +55,9 @@ fun TransformationCard(transformation: Transformation) {
                     .size(160.dp)
                     .clip(RoundedCornerShape(12.dp))
             )
-            
+
             Spacer(modifier = Modifier.height(8.dp))
-            
+
             // Información de la transformación con tamaño dinámico
             Column(
                 modifier = Modifier
@@ -50,38 +65,28 @@ fun TransformationCard(transformation: Transformation) {
                     .weight(1f),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                // Nombre de la transformación con tamaño dinámico
+                val textConfig = getTextConfig(transformation.name)
                 Text(
                     text = transformation.name,
-                    style = when {
-                        transformation.name.length <= 12 -> MaterialTheme.typography.bodyLarge
-                        transformation.name.length <= 20 -> MaterialTheme.typography.bodyMedium
-                        transformation.name.length <= 30 -> MaterialTheme.typography.bodySmall
-                        else -> MaterialTheme.typography.labelMedium
-                    },
+                    style = textConfig.style,
                     fontWeight = FontWeight.Bold,
                     color = Orange,
                     textAlign = TextAlign.Center,
-                    maxLines = if (transformation.name.length > 20) 3 else 2,
-                    lineHeight = when {
-                        transformation.name.length <= 12 -> MaterialTheme.typography.bodyLarge.lineHeight
-                        transformation.name.length <= 20 -> MaterialTheme.typography.bodyMedium.lineHeight
-                        transformation.name.length <= 30 -> MaterialTheme.typography.bodySmall.lineHeight
-                        else -> MaterialTheme.typography.labelMedium.lineHeight
-                    }
+                    maxLines = textConfig.maxLines,
+                    lineHeight = textConfig.style.lineHeight
                 )
-                
-                // Ki level si está disponible
-                if (!transformation.ki.isNullOrBlank()) {
-                    Spacer(modifier = Modifier.height(4.dp))
-                    Text(
-                        text = "Ki: ${transformation.ki}",
-                        style = MaterialTheme.typography.bodySmall,
-                        color = Gold,
-                        textAlign = TextAlign.Center,
-                        fontWeight = FontWeight.Medium
-                    )
-                }
+            }
+
+            // Ki level si está disponible
+            if (!transformation.ki.isNullOrBlank()) {
+                Spacer(modifier = Modifier.height(4.dp))
+                Text(
+                    text = "Ki: ${transformation.ki}",
+                    style = MaterialTheme.typography.bodySmall,
+                    color = Gold,
+                    textAlign = TextAlign.Center,
+                    fontWeight = FontWeight.Medium
+                )
             }
         }
     }

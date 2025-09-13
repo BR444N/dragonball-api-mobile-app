@@ -43,10 +43,6 @@ class PlanetsViewModel : ViewModel() {
         }
     }
 
-    fun refreshPlanets() {
-        fetchPlanets()
-    }
-
     fun retry() {
         fetchPlanets()
     }

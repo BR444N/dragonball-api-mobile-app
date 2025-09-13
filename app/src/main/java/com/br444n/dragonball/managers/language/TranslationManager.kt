@@ -23,7 +23,7 @@ object TranslationManager {
         _isTranslationEnabled.value = enabled
     }
     
-    // Función placeholder para traducción con ML Kit
+    // Function placeholder para traducer con ML Kit
     // TODO: Implementar ML Kit Translation API
     suspend fun translateText(text: String, targetLanguage: String): String {
         // Por ahora retorna el texto original

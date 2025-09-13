@@ -22,7 +22,6 @@ class MainActivity : ComponentActivity() {
         
         setContent {
             val isDarkMode by ThemeManager.isDarkMode.collectAsState()
-            
             DragonBallTheme(darkTheme = isDarkMode) {
                 AppNavigation()
             }
