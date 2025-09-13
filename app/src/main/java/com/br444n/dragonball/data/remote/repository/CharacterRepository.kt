@@ -1,7 +1,6 @@
 package com.br444n.dragonball.data.remote.repository
 
 import com.br444n.dragonball.data.remote.ApiClient
-import com.br444n.dragonball.data.remote.models.Character
 import com.br444n.dragonball.data.remote.models.CharactersResponse
 
 class CharacterRepository {
@@ -11,7 +10,7 @@ class CharacterRepository {
         return api.getCharacters(limit, offset)
     }
 
-    suspend fun getCharacterById(id: String): Character {
+    suspend fun getCharacterById(id: String): com.br444n.dragonball.data.remote.models.Character {
         return api.getCharacterById(id)
     }
 }
