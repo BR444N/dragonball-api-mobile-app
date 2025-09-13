@@ -88,5 +88,5 @@ android {
         implementation(libs.splashScreen)
         
         //ML Kit Translation
-        implementation("com.google.mlkit:translate:17.0.2")
+        implementation(libs.translate)
     }

@@ -1,5 +1,7 @@
 [versions]
 agp = "8.12.0"
+firebaseMlNaturalLanguage = "22.0.1"
+firebaseMlNaturalLanguageTranslateModel = "20.0.9"
 kotlin = "2.2.0"
 coreKtx = "1.16.0"
 junit = "4.13.2"
@@ -26,6 +28,8 @@ coil = "2.7.0"
 lottie = "6.6.7"
 #SplashScreen
 splashScreen = "1.0.1"
+#ML Kit Translate
+translate = "17.0.3"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -71,6 +75,9 @@ lottie = { group = "com.airbnb.android", name = "lottie-compose", version.ref = 
 
 #SplashScreen
 splashScreen = { group = "androidx.core", name = "core-splashscreen", version.ref = "splashScreen" }
+
+#ML Kit Translate
+translate = { module = "com.google.mlkit:translate", version.ref = "translate" }
 
 
 [plugins]
