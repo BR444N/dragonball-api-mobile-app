@@ -1,8 +1,9 @@
 package com.br444n.dragonball.ui.theme.features.characters.detail
-
 import android.os.Build
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
@@ -19,9 +20,12 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.AsyncImage
 import com.br444n.dragonball.data.remote.models.Character
+import com.br444n.dragonball.data.remote.models.Transformation
+
 import com.br444n.dragonball.ui.components.CharacterDetailAppBar
 import com.br444n.dragonball.ui.components.ErrorUiState
 import com.br444n.dragonball.ui.components.NoInternetConnectionState
+import com.br444n.dragonball.ui.components.TransformationCard
 import com.br444n.dragonball.ui.theme.*
 import com.br444n.dragonball.utils.LoadingAnimation
 
@@ -227,6 +231,14 @@ private fun CharacterDetailContent(
                         )
                     }
                 }
+                
+                Spacer(modifier = Modifier.height(16.dp))
+            }
+
+            // Transformaciones
+            if (!character.transformations.isNullOrEmpty()) {
+                TransformationsCarousel(transformations = character.transformations)
+                Spacer(modifier = Modifier.height(16.dp))
             }
 
             Spacer(modifier = Modifier.height(32.dp))
@@ -283,3 +295,27 @@ private fun CharacterInfoCard(
         }
     }
 }
+
+@Composable
+private fun TransformationsCarousel(transformations: List<Transformation>) {
+    Column {
+        Text(
+            text = "Transformations",
+            style = MaterialTheme.typography.titleLarge,
+            fontWeight = FontWeight.Bold,
+            color = Orange,
+            modifier = Modifier.padding(bottom = 16.dp)
+        )
+        
+        LazyRow(
+            horizontalArrangement = Arrangement.spacedBy(16.dp),
+            contentPadding = PaddingValues(horizontal = 4.dp)
+        ) {
+            items(transformations) { transformation ->
+                TransformationCard(transformation = transformation)
+            }
+        }
+    }
+}
+
+

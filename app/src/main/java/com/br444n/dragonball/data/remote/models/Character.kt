@@ -9,7 +9,15 @@ data class Character(
     val gender: String?,
     val description: String?,
     val image: String?,
-    val affiliation: String?
+    val affiliation: String?,
+    val transformations: List<Transformation>? = null
+)
+
+data class Transformation(
+    val id: Int,
+    val name: String,
+    val image: String?,
+    val ki: String?
 )
 
 data class CharactersResponse(

@@ -1,0 +1,50 @@
+<resources>
+    <string name="app_name">DragonBall</string>
+    
+    <!-- Navigation -->
+    <string name="characters">Personajes</string>
+    <string name="planets">Planetas</string>
+    <string name="settings">Configuración</string>
+    
+    <!-- Character Details -->
+    <string name="character_details">Detalles del Personaje</string>
+    <string name="basic_information">Información Básica</string>
+    <string name="power_level">Nivel de Poder</string>
+    <string name="description">Descripción</string>
+    <string name="transformations">Transformaciones</string>
+    <string name="race">Raza</string>
+    <string name="gender">Género</string>
+    <string name="affiliation">Afiliación</string>
+    <string name="ki">Ki</string>
+    <string name="max_ki">Ki Máximo</string>
+    <string name="unknown">Desconocido</string>
+    
+    <!-- Settings -->
+    <string name="appearance">Apariencia</string>
+    <string name="dark_mode">Modo Oscuro</string>
+    <string name="dark_mode_description">Cambiar entre tema claro y oscuro</string>
+    <string name="language">Idioma</string>
+    <string name="select_language">Seleccionar Idioma</string>
+    <string name="translate_content">Traducir Contenido</string>
+    <string name="translate_content_description">Usar ML Kit para traducir descripciones y nombres de personajes</string>
+    
+    <!-- Languages -->
+    <string name="english">English</string>
+    <string name="spanish">Español</string>
+    <string name="french">Français</string>
+    <string name="german">Deutsch</string>
+    <string name="japanese">日本語</string>
+    
+    <!-- App Info -->
+    <string name="app_information">Información de la App</string>
+    <string name="app_description">Explora el universo de Dragon Ball con información detallada de personajes, transformaciones y datos de planetas.</string>
+    <string name="version">Versión 1.0.0</string>
+    
+    <!-- Common -->
+    <string name="loading">Cargando...</string>
+    <string name="error">Error</string>
+    <string name="retry">Reintentar</string>
+    <string name="no_internet">Sin Conexión a Internet</string>
+    <string name="refresh">Actualizar</string>
+    <string name="back">Atrás</string>
+</resources>

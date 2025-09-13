@@ -20,7 +20,6 @@ import com.br444n.dragonball.ui.components.NoInternetConnectionState
 import com.br444n.dragonball.ui.theme.features.characters.detail.CharacterDetailScreen
 import com.br444n.dragonball.ui.theme.features.planets.PlanetsScreen
 import com.br444n.dragonball.ui.theme.features.settings.SettingsScreen
-import com.br444n.dragonball.ui.theme.features.transformations.TransformationsScreen
 import com.br444n.dragonball.utils.LoadingAnimation
 
 @Composable
@@ -48,7 +47,6 @@ fun AppNavigation() {
                             when (route) {
                                 "characters" -> navController.navigate(AppScreen.CharacterList.route)
                                 "Planets" -> navController.navigate(AppScreen.Planets.route)
-                                "Transformations" -> navController.navigate(AppScreen.Transformations.route)
                             }
                         },
                         onCharacterClick = { characterId ->
@@ -79,15 +77,14 @@ fun AppNavigation() {
             }
         }
         composable(AppScreen.Settings.route) {
-            SettingsScreen()
+            SettingsScreen(
+                onBackClick = { navController.popBackStack() }
+            )
         }
         composable(AppScreen.Planets.route) {
             PlanetsScreen(
                 onBackClick = { navController.navigate(AppScreen.CharacterList.route) }
             )
-        }
-        composable(AppScreen.Transformations.route) {
-            TransformationsScreen()
         }
         composable(AppScreen.CharacterDetail.route) { backStackEntry ->
             val characterId = backStackEntry.arguments?.getString("characterId")

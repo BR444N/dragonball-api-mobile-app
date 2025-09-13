@@ -17,15 +17,8 @@ class CharacterDetailViewModel : ViewModel() {
         
         viewModelScope.launch {
             try {
-                // Como la API actual no tiene endpoint individual, buscaremos en la lista completa
-                val response = repository.getCharacters(58, 0)
-                val character = response.items.find { it.id.toString() == characterId }
-                
-                if (character != null) {
-                    _uiState.value = CharacterDetailUiState.Success(character)
-                } else {
-                    _uiState.value = CharacterDetailUiState.Error("Character not found")
-                }
+                val character = repository.getCharacterById(characterId)
+                _uiState.value = CharacterDetailUiState.Success(character)
             } catch (e: Exception) {
                 when (e) {
                     is java.net.UnknownHostException -> {

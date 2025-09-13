@@ -123,30 +123,8 @@ fun DragonBallAppBar(
                     shape = RoundedCornerShape(8.dp)
                 ) {
                     DropdownMenuItem(
-                        text = { Text("Characters", color = Red) },
-                        onClick = { onMenuItemClick("characters"); menuExpand = false }
-                    )
-                    HorizontalDivider(
-                        modifier = Modifier
-                            .fillMaxWidth(0.9f)
-                            .align(Alignment.CenterHorizontally),
-                        color = Red,
-                        thickness = 1.dp,
-                    )
-                    DropdownMenuItem(
                         text = { Text("Planets", color = Red) },
                         onClick = { onMenuItemClick("Planets"); menuExpand = false }
-                    )
-                    HorizontalDivider(
-                        modifier = Modifier
-                            .fillMaxWidth(0.9f)
-                            .align(Alignment.CenterHorizontally),
-                        color = Red,
-                        thickness = 1.dp,
-                    )
-                    DropdownMenuItem(
-                        text = { Text("Transformations", color = Red) },
-                        onClick = { onMenuItemClick("Transformations"); menuExpand = false }
                     )
                 }
             }
