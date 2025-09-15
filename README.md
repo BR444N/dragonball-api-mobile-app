@@ -1,2 +1,2 @@
-# Dragonball-API-Mobile-App
-Aplicación móvil desarrollada en Kotlin utilizando Jetpack Compose para la interfaz de usuario. Este proyecto consume la Dragon Ball API para mostrar información relevante sobre personajes sus transformaciones y otros datos del universo Dragon Ball. La app incluye funcionalidades como navegación entre pantallas, tema claro-oscuro e idiomas.
+# Dragonball-Characters-Mobile-App
+Mobile application developed in Kotlin using Jetpack Compose for the user interface. This project consumes the Dragon Ball API to display relevant information about characters, their transformations, and other data from the Dragon Ball universe. The app includes features such as screen navigation, light/dark theme, and language support.
