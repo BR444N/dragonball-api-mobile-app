@@ -28,3 +28,12 @@ Mobile application developed in Kotlin using Jetpack Compose for the user interf
 ```bash
 git clone https://github.com/BR444N/dragonball-api-mobile-app.git
 ```
+
+# 📦 Stack
+
+- Jetpack Compose:
+- Kotlin:
+- ML Kit:
+- Lottie:
+- Material Design 3:
+- API: 
