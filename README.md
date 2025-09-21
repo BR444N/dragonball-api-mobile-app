@@ -21,4 +21,10 @@ Mobile application developed in Kotlin using Jetpack Compose for the user interf
 - 🎞️ **Lottie Animations**: Uses **Lottie** for smooth and engaging loading spinners.  
 - 💡 **UI Tooltips**: Provides helpful **tooltips** on TopAppBar buttons to guide users.  
 - ♿ **Accessibility**: Includes **descriptions for UI elements** to support screen readers and other accessibility features.    
-- 📱 **Adaptive Design**: The UI is designed to **adapt to different screen sizes and orientations**.  
+- 📱 **Adaptive Design**: The UI is designed to **adapt to different screen sizes and orientations**.
+
+# ⚙️ Download
+
+```bash
+git clone https://github.com/BR444N/dragonball-api-mobile-app.git
+```
