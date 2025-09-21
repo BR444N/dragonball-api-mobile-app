@@ -4,11 +4,13 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.br444n.dragonball.managers.language.UnifiedLanguageManager
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -27,6 +29,12 @@ fun AppNavigation() {
     val navController = rememberNavController()
     val charactersViewModel: CharactersViewModel = viewModel()
     val uiState by charactersViewModel.uiState.collectAsState()
+    val currentLanguage by UnifiedLanguageManager.currentLanguage.collectAsState()
+    
+    // Recargar personajes cuando cambie el idioma unificado
+    LaunchedEffect(currentLanguage) {
+        charactersViewModel.reloadWithCurrentLanguage()
+    }
 
     NavHost(navController = navController, startDestination = AppScreen.CharacterList.route) {
         composable(AppScreen.CharacterList.route) {

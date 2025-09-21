@@ -22,6 +22,7 @@ import coil.compose.AsyncImage
 import com.br444n.dragonball.data.remote.models.Planet
 import androidx.compose.ui.res.stringResource
 import com.br444n.dragonball.R
+import com.br444n.dragonball.managers.language.UnifiedLanguageManager
 import com.br444n.dragonball.ui.theme.*
 import com.br444n.dragonball.utils.LoadingAnimation
 import com.br444n.dragonball.ui.components.CharacterDetailAppBar
@@ -35,6 +36,12 @@ fun PlanetsScreen(
 ) {
     val viewModel: PlanetsViewModel = viewModel()
     val uiState by viewModel.uiState.collectAsState()
+    val currentLanguage by UnifiedLanguageManager.currentLanguage.collectAsState()
+    
+    // Recargar cuando cambie el idioma unificado
+    LaunchedEffect(currentLanguage) {
+        viewModel.reloadWithCurrentLanguage()
+    }
 
     Scaffold(
         topBar = {
@@ -129,77 +136,19 @@ private fun PlanetCard(planet: Planet) {
                 .fillMaxWidth()
                 .padding(16.dp)
         ) {
-            // Imagen del planeta (lado izquierdo)
-            Card(
-                modifier = Modifier.size(80.dp),
-                shape = RoundedCornerShape(50.dp),
-                elevation = CardDefaults.cardElevation(4.dp)
-            ) {
-                AsyncImage(
-                    model = planet.image,
-                    contentDescription = planet.name,
-                    contentScale = ContentScale.Crop,
-                    modifier = Modifier.fillMaxSize()
-                )
-            }
+            PlanetImage(
+                imageUrl = planet.image,
+                planetName = planet.name
+            )
             
             Spacer(modifier = Modifier.width(16.dp))
             
-            // Contenido del texto (lado derecho)
-            Column(
-                modifier = Modifier
-                    .weight(1f)
-                    .fillMaxHeight()
-            ) {
-                // Nombre del planeta
-                Text(
-                    text = planet.name,
-                    style = MaterialTheme.typography.headlineSmall,
-                    fontWeight = FontWeight.Bold,
-                    color = Orange2
-                )
-                
-                Spacer(modifier = Modifier.height(8.dp))
-                
-                // Estado del planeta
-                Row(
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.spacedBy(6.dp)
-                ) {
-                    Icon(
-                        imageVector = if (planet.isDestroyed) Icons.Default.Dangerous else Icons.Default.CheckCircle,
-                        contentDescription = if (planet.isDestroyed) stringResource(R.string.destroyed) else stringResource(R.string.active),
-                        tint = if (planet.isDestroyed) Red else Green,
-                        modifier = Modifier.size(18.dp)
-                    )
-                    Text(
-                        text = if (planet.isDestroyed) stringResource(R.string.destroyed) else stringResource(R.string.active),
-                        style = MaterialTheme.typography.bodyMedium,
-                        color = if (planet.isDestroyed) Red else Green,
-                        fontWeight = FontWeight.Medium
-                    )
-                }
-                
-                Spacer(modifier = Modifier.height(12.dp))
-                
-                // Descripción con componente expandible
-                if (!planet.description.isNullOrBlank()) {
-                    ExpandableText(
-                        text = planet.description,
-                        isExpanded = isExpanded,
-                        onToggleExpanded = { isExpanded = !isExpanded }
-                    )
-                }
-                
-                Spacer(modifier = Modifier.height(8.dp))
-                
-                // ID del planeta
-                Text(
-                    text = "${stringResource(R.string.planet_id)}: ${planet.id}",
-                    style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f)
-                )
-            }
+            PlanetContent(
+                planet = planet,
+                isExpanded = isExpanded,
+                onToggleExpanded = { isExpanded = !isExpanded },
+                modifier = Modifier.weight(1f)
+            )
         }
     }
 }
@@ -212,42 +161,169 @@ private fun ExpandableText(
     maxLinesCollapsed: Int = 3
 ) {
     Column {
-        Text(
+        ExpandableTextContent(
             text = text,
-            color = Gold,
-            style = MaterialTheme.typography.bodyMedium,
-            maxLines = if (isExpanded) Int.MAX_VALUE else maxLinesCollapsed,
-            overflow = if (isExpanded) TextOverflow.Visible else TextOverflow.Ellipsis,
-            lineHeight = MaterialTheme.typography.bodyMedium.lineHeight * 1.4
+            isExpanded = isExpanded,
+            maxLinesCollapsed = maxLinesCollapsed
         )
         
-        // Mostrar botón solo si el texto es largo
-        if (text.length > 150) { // Aproximadamente 3 líneas
+        if (shouldShowToggleButton(text)) {
             Spacer(modifier = Modifier.height(4.dp))
-            
-            TextButton(
-                onClick = onToggleExpanded,
-                contentPadding = PaddingValues(0.dp),
-                modifier = Modifier.height(32.dp)
-            ) {
-                Row(
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.spacedBy(4.dp)
-                ) {
-                    Text(
-                        text = if (isExpanded) stringResource(R.string.show_less) else stringResource(R.string.show_more),
-                        style = MaterialTheme.typography.bodySmall,
-                        color = Orange,
-                        fontWeight = FontWeight.Medium
-                    )
-                    Icon(
-                        imageVector = if (isExpanded) Icons.Default.ExpandLess else Icons.Default.ExpandMore,
-                        contentDescription = if (isExpanded) stringResource(R.string.collapse) else stringResource(R.string.expand),
-                        tint = Orange,
-                        modifier = Modifier.size(16.dp)
-                    )
-                }
-            }
+            ExpandToggleButton(
+                isExpanded = isExpanded,
+                onToggleExpanded = onToggleExpanded
+            )
         }
     }
+}
+
+@Composable
+private fun ExpandableTextContent(
+    text: String,
+    isExpanded: Boolean,
+    maxLinesCollapsed: Int
+) {
+    Text(
+        text = text,
+        color = Gold,
+        style = MaterialTheme.typography.bodyMedium,
+        maxLines = if (isExpanded) Int.MAX_VALUE else maxLinesCollapsed,
+        overflow = if (isExpanded) TextOverflow.Visible else TextOverflow.Ellipsis,
+        lineHeight = MaterialTheme.typography.bodyMedium.lineHeight * 1.4
+    )
+}
+
+@Composable
+private fun ExpandToggleButton(
+    isExpanded: Boolean,
+    onToggleExpanded: () -> Unit
+) {
+    TextButton(
+        onClick = onToggleExpanded,
+        contentPadding = PaddingValues(0.dp),
+        modifier = Modifier.height(32.dp)
+    ) {
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(4.dp)
+        ) {
+            Text(
+                text = if (isExpanded) stringResource(R.string.show_less) else stringResource(R.string.show_more),
+                style = MaterialTheme.typography.bodySmall,
+                color = Orange,
+                fontWeight = FontWeight.Medium
+            )
+            Icon(
+                imageVector = if (isExpanded) Icons.Default.ExpandLess else Icons.Default.ExpandMore,
+                contentDescription = if (isExpanded) stringResource(R.string.collapse) else stringResource(R.string.expand),
+                tint = Orange,
+                modifier = Modifier.size(16.dp)
+            )
+        }
+    }
+}
+
+private fun shouldShowToggleButton(text: String): Boolean {
+    return text.length > 150 // Aproximadamente 3 líneas
+}
+
+@Composable
+private fun PlanetImage(
+    imageUrl: String?,
+    planetName: String
+) {
+    Card(
+        modifier = Modifier.size(80.dp),
+        shape = RoundedCornerShape(50.dp),
+        elevation = CardDefaults.cardElevation(4.dp)
+    ) {
+        AsyncImage(
+            model = imageUrl,
+            contentDescription = planetName,
+            contentScale = ContentScale.Crop,
+            modifier = Modifier.fillMaxSize()
+        )
+    }
+}
+
+@Composable
+private fun PlanetContent(
+    planet: Planet,
+    isExpanded: Boolean,
+    onToggleExpanded: () -> Unit,
+    modifier: Modifier = Modifier
+) {
+    Column(
+        modifier = modifier.fillMaxHeight()
+    ) {
+        PlanetTitle(planet.name)
+        Spacer(modifier = Modifier.height(8.dp))
+        
+        PlanetStatus(planet.isDestroyed)
+        Spacer(modifier = Modifier.height(12.dp))
+        
+        PlanetDescription(
+            description = planet.description,
+            isExpanded = isExpanded,
+            onToggleExpanded = onToggleExpanded
+        )
+        
+        Spacer(modifier = Modifier.height(8.dp))
+        PlanetId(planet.id)
+    }
+}
+
+@Composable
+private fun PlanetTitle(name: String) {
+    Text(
+        text = name,
+        style = MaterialTheme.typography.headlineSmall,
+        fontWeight = FontWeight.Bold,
+        color = Orange2
+    )
+}
+
+@Composable
+private fun PlanetStatus(isDestroyed: Boolean) {
+    Row(
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.spacedBy(6.dp)
+    ) {
+        Icon(
+            imageVector = if (isDestroyed) Icons.Default.Dangerous else Icons.Default.CheckCircle,
+            contentDescription = if (isDestroyed) stringResource(R.string.destroyed) else stringResource(R.string.active),
+            tint = if (isDestroyed) Red else Green,
+            modifier = Modifier.size(18.dp)
+        )
+        Text(
+            text = if (isDestroyed) stringResource(R.string.destroyed) else stringResource(R.string.active),
+            style = MaterialTheme.typography.bodyMedium,
+            color = if (isDestroyed) Red else Green,
+            fontWeight = FontWeight.Medium
+        )
+    }
+}
+
+@Composable
+private fun PlanetDescription(
+    description: String?,
+    isExpanded: Boolean,
+    onToggleExpanded: () -> Unit
+) {
+    if (!description.isNullOrBlank()) {
+        ExpandableText(
+            text = description,
+            isExpanded = isExpanded,
+            onToggleExpanded = onToggleExpanded
+        )
+    }
+}
+
+@Composable
+private fun PlanetId(id: Int) {
+    Text(
+        text = "${stringResource(R.string.planet_id)}: $id",
+        style = MaterialTheme.typography.bodySmall,
+        color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f)
+    )
 }

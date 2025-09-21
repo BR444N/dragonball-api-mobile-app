@@ -28,6 +28,7 @@ import androidx.compose.ui.graphics.BlendMode
 import androidx.compose.ui.graphics.BlurEffect
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.TileMode
+
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
@@ -60,7 +61,8 @@ fun CharacterListScreen(
             )
         }
     ) { paddingValues ->
-        LazyRow(
+        Box(modifier = Modifier.fillMaxSize()) {
+            LazyRow(
             state = listState,
             modifier = Modifier
                 .fillMaxSize()
@@ -82,6 +84,8 @@ fun CharacterListScreen(
                     )
                 }
             }
+        }
+
         }
     }
 }

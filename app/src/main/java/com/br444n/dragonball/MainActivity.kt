@@ -10,8 +10,8 @@ import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.br444n.dragonball.navigation.AppNavigation
 import com.br444n.dragonball.ui.theme.DragonBallTheme
 import com.br444n.dragonball.managers.theme.ThemeManager
-import com.br444n.dragonball.managers.language.LanguageManager
-import com.br444n.dragonball.managers.language.ContentManager
+import com.br444n.dragonball.managers.language.UnifiedLanguageManager
+import com.br444n.dragonball.services.TranslationService
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,18 +20,20 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         
         // Inicializar managers
-        LanguageManager.init(this)
+        UnifiedLanguageManager.init(this)
         ThemeManager.init(this)
-        ContentManager.init(this)
-        
-        // Aplicar idioma guardado
-        LanguageManager.applyCurrentLanguage(this)
-        
         setContent {
             val isDarkMode by ThemeManager.isDarkMode.collectAsState()
             DragonBallTheme(darkTheme = isDarkMode) {
                 AppNavigation()
             }
         }
+    }
+    
+    override fun onDestroy() {
+        super.onDestroy()
+        // Limpiar recursos del servicio de traducción y manager unificado
+        TranslationService.cleanup()
+        UnifiedLanguageManager.cleanup()
     }
 }

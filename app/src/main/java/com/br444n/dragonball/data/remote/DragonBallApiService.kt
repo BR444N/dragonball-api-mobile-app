@@ -11,20 +11,17 @@ interface DragonBallApiService {
     @GET("characters")
     suspend fun getCharacters(
         @Query("limit") limit: Int = 58,
-        @Query("offset") offset: Int = 0,
-        @Query("lang") language: String? = null // Si la API soporta parámetro de idioma
+        @Query("offset") offset: Int = 0
     ): CharactersResponse
 
     @GET("planets")
     suspend fun getPlanets(
         @Query("limit") limit: Int = 20,
-        @Query("offset") offset: Int = 0,
-        @Query("lang") language: String? = null // Si la API soporta parámetro de idioma
+        @Query("offset") offset: Int = 0
     ): PlanetsResponse
 
     @GET("characters/{id}")
     suspend fun getCharacterById(
-        @Path("id") id: String,
-        @Query("lang") language: String? = null // Si la API soporta parámetro de idioma
+        @Path("id") id: String
     ): Character
 }

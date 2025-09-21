@@ -3,8 +3,10 @@ package com.br444n.dragonball.ui.theme.features.planets
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.br444n.dragonball.data.remote.repository.PlanetRepository
+import com.br444n.dragonball.managers.language.UnifiedLanguageManager
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
 class PlanetsViewModel : ViewModel() {
@@ -14,13 +16,21 @@ class PlanetsViewModel : ViewModel() {
 
     init {
         fetchPlanets()
+        // Observar cambios en el idioma unificado
+        viewModelScope.launch {
+            UnifiedLanguageManager.currentLanguage.collectLatest { _ ->
+                fetchPlanets()
+            }
+        }
     }
 
     private fun fetchPlanets() {
         _uiState.value = PlanetUiState.Loading
         viewModelScope.launch {
             try {
-                val response = repository.getPlanets(20, 0)
+                // Usar el idioma unificado actual
+                val contentLanguage = UnifiedLanguageManager.currentLanguage.value
+                val response = repository.getPlanets(20, 0, contentLanguage)
                 if (response.items.isEmpty()) {
                     _uiState.value = PlanetUiState.Empty
                 } else {
@@ -41,6 +51,10 @@ class PlanetsViewModel : ViewModel() {
                 }
             }
         }
+    }
+    
+    fun reloadWithCurrentLanguage() {
+        fetchPlanets()
     }
 
     fun retry() {

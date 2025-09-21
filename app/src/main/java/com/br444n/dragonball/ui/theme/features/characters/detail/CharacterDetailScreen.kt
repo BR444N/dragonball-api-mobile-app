@@ -22,6 +22,7 @@ import com.br444n.dragonball.data.remote.models.Character
 import com.br444n.dragonball.data.remote.models.Transformation
 import androidx.compose.ui.res.stringResource
 import com.br444n.dragonball.R
+import com.br444n.dragonball.managers.language.UnifiedLanguageManager
 import com.br444n.dragonball.ui.components.CharacterDetailAppBar
 import com.br444n.dragonball.ui.components.ErrorUiState
 import com.br444n.dragonball.ui.components.NoInternetConnectionState
@@ -37,9 +38,17 @@ fun CharacterDetailScreen(
 ) {
     val viewModel: CharacterDetailViewModel = viewModel()
     val uiState by viewModel.uiState.collectAsState()
+    val currentLanguage by UnifiedLanguageManager.currentLanguage.collectAsState()
 
     LaunchedEffect(characterId) {
         viewModel.loadCharacter(characterId)
+    }
+    
+    // Recargar cuando cambie el idioma unificado
+    LaunchedEffect(currentLanguage) {
+        if (characterId.isNotEmpty()) {
+            viewModel.reloadWithCurrentLanguage()
+        }
     }
 
     Scaffold(

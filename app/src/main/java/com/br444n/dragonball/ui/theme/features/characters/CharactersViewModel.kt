@@ -3,8 +3,10 @@ package com.br444n.dragonball.ui.theme.features.characters
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.br444n.dragonball.data.remote.repository.CharacterRepository
+import com.br444n.dragonball.managers.language.UnifiedLanguageManager
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
 class CharactersViewModel : ViewModel() {
@@ -14,13 +16,21 @@ class CharactersViewModel : ViewModel() {
 
     init {
         fetchCharacters()
+        // Observar cambios en el idioma unificado
+        viewModelScope.launch {
+            UnifiedLanguageManager.currentLanguage.collectLatest { _ ->
+                fetchCharacters()
+            }
+        }
     }
 
     private fun fetchCharacters() {
         _uiState.value = CharacterUiState.Loading
         viewModelScope.launch {
             try {
-                val response = repository.getCharacters(58, 0)
+                // Usar el idioma unificado actual
+                val contentLanguage = UnifiedLanguageManager.currentLanguage.value
+                val response = repository.getCharacters(58, 0, contentLanguage)
                 if (response.items.isEmpty()) {
                     _uiState.value = CharacterUiState.Empty
                 } else {
@@ -41,6 +51,10 @@ class CharactersViewModel : ViewModel() {
                 }
             }
         }
+    }
+    
+    fun reloadWithCurrentLanguage() {
+        fetchCharacters()
     }
 
     fun retry() {

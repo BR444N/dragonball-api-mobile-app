@@ -28,10 +28,6 @@ object ThemeManager {
         prefs.edit { putBoolean(KEY_DARK_MODE, isDark) }
         _isDarkMode.value = isDark
     }
-    
-    fun toggleTheme(context: Context) {
-        setDarkMode(context, !_isDarkMode.value)
-    }
 }
 
 @SuppressLint("StateFlowValueCalledInComposition")
