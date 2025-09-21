@@ -8,6 +8,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.platform.LocalContext
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import androidx.core.content.edit
 
 object ThemeManager {
     private const val PREFS_NAME = "theme_prefs"
@@ -24,7 +25,7 @@ object ThemeManager {
     
     fun setDarkMode(context: Context, isDark: Boolean) {
         val prefs = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
-        prefs.edit().putBoolean(KEY_DARK_MODE, isDark).apply()
+        prefs.edit { putBoolean(KEY_DARK_MODE, isDark) }
         _isDarkMode.value = isDark
     }
     

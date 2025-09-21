@@ -12,6 +12,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.br444n.dragonball.R
 import com.br444n.dragonball.ui.theme.*
+import androidx.compose.ui.res.stringResource
 
 @Composable
 fun NoInternetConnectionState(
@@ -35,7 +36,7 @@ fun NoInternetConnectionState(
             Spacer(modifier = Modifier.height(24.dp))
 
             Text(
-                text = "No Internet Connection",
+                text = stringResource(R.string.no_internet_title),
                 color = Orange,
                 style = MaterialTheme.typography.headlineSmall,
                 fontWeight = FontWeight.Bold,
@@ -45,7 +46,7 @@ fun NoInternetConnectionState(
             Spacer(modifier = Modifier.height(8.dp))
             
             Text(
-                text = "Please check your internet connection and try again",
+                text = stringResource(R.string.no_internet_message),
                 color = Red,
                 style = MaterialTheme.typography.bodyMedium,
                 textAlign = TextAlign.Center
@@ -60,7 +61,7 @@ fun NoInternetConnectionState(
                 )
             ) {
                 Text(
-                    "Refresh",
+                    stringResource(R.string.refresh),
                     color = Red,
                     fontWeight = FontWeight.Medium
                 )

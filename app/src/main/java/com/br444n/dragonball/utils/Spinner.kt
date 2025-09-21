@@ -12,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -51,7 +52,7 @@ fun LoadingAnimation(
                 modifier = Modifier.size(400.dp) // tamaño ajustable
             )
             Text(
-                text = "Loading...",
+                text = stringResource(R.string.loading),
                 color = Orange,
                 fontWeight = FontWeight.Bold,
                 fontSize = 20.sp

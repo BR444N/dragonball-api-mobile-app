@@ -13,6 +13,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.br444n.dragonball.R
 import com.br444n.dragonball.ui.theme.*
+import androidx.compose.ui.res.stringResource
 
 @Composable
 fun ErrorUiState(
@@ -38,7 +39,7 @@ fun ErrorUiState(
             Spacer(modifier = Modifier.height(16.dp))
 
             Text(
-                text = "Error: $errorMessage",
+                text = "${stringResource(R.string.error_prefix)} $errorMessage",
                 color = Orange,
                 style = MaterialTheme.typography.bodyLarge,
                 textAlign = TextAlign.Center
@@ -56,7 +57,7 @@ fun ErrorUiState(
                     )
                 ) {
                     Text(
-                        "Retry",
+                        stringResource(R.string.retry),
                         color = Red
                     )
                 }
@@ -70,7 +71,7 @@ fun ErrorUiState(
                         border = BorderStroke(width = 1.dp, color = Orange2)
                     ) {
                         Text(
-                            "Go Back",
+                            stringResource(R.string.go_back),
                             color = Red
                         )
                     }

@@ -20,6 +20,8 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.AsyncImage
 import com.br444n.dragonball.data.remote.models.Planet
+import androidx.compose.ui.res.stringResource
+import com.br444n.dragonball.R
 import com.br444n.dragonball.ui.theme.*
 import com.br444n.dragonball.utils.LoadingAnimation
 import com.br444n.dragonball.ui.components.CharacterDetailAppBar
@@ -37,7 +39,7 @@ fun PlanetsScreen(
     Scaffold(
         topBar = {
             CharacterDetailAppBar(
-                title = "Planets",
+                title = stringResource(R.string.planets),
                 onBackClick = onBackClick,
                 titleColor = Red,
                 contentColor = Red
@@ -83,7 +85,7 @@ fun PlanetsScreen(
                     contentAlignment = Alignment.Center
                 ) {
                     Text(
-                        text = "No planets found",
+                        text = stringResource(R.string.no_planets_found),
                         style = MaterialTheme.typography.bodyLarge
                     )
                 }
@@ -166,12 +168,12 @@ private fun PlanetCard(planet: Planet) {
                 ) {
                     Icon(
                         imageVector = if (planet.isDestroyed) Icons.Default.Dangerous else Icons.Default.CheckCircle,
-                        contentDescription = if (planet.isDestroyed) "Destroyed" else "Active",
+                        contentDescription = if (planet.isDestroyed) stringResource(R.string.destroyed) else stringResource(R.string.active),
                         tint = if (planet.isDestroyed) Red else Green,
                         modifier = Modifier.size(18.dp)
                     )
                     Text(
-                        text = if (planet.isDestroyed) "Destroyed" else "Active",
+                        text = if (planet.isDestroyed) stringResource(R.string.destroyed) else stringResource(R.string.active),
                         style = MaterialTheme.typography.bodyMedium,
                         color = if (planet.isDestroyed) Red else Green,
                         fontWeight = FontWeight.Medium
@@ -193,7 +195,7 @@ private fun PlanetCard(planet: Planet) {
                 
                 // ID del planeta
                 Text(
-                    text = "Planet ID: ${planet.id}",
+                    text = "${stringResource(R.string.planet_id)}: ${planet.id}",
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f)
                 )
@@ -233,14 +235,14 @@ private fun ExpandableText(
                     horizontalArrangement = Arrangement.spacedBy(4.dp)
                 ) {
                     Text(
-                        text = if (isExpanded) "Show less" else "Show more",
+                        text = if (isExpanded) stringResource(R.string.show_less) else stringResource(R.string.show_more),
                         style = MaterialTheme.typography.bodySmall,
                         color = Orange,
                         fontWeight = FontWeight.Medium
                     )
                     Icon(
                         imageVector = if (isExpanded) Icons.Default.ExpandLess else Icons.Default.ExpandMore,
-                        contentDescription = if (isExpanded) "Collapse" else "Expand",
+                        contentDescription = if (isExpanded) stringResource(R.string.collapse) else stringResource(R.string.expand),
                         tint = Orange,
                         modifier = Modifier.size(16.dp)
                     )

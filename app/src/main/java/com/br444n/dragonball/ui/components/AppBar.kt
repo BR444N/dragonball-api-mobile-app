@@ -42,6 +42,7 @@ import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.PopupPositionProvider
+import androidx.compose.ui.res.stringResource
 import com.br444n.dragonball.R
 import com.br444n.dragonball.ui.theme.Orange2
 import com.br444n.dragonball.ui.theme.Red
@@ -99,7 +100,7 @@ fun DragonBallAppBar(
                     },
                     tooltip = {
                         PlainTooltip {
-                            Text("Menu")
+                            Text(stringResource(R.string.menu_tooltip))
                         }
                     },
                     state = remember { TooltipState() }
@@ -107,7 +108,7 @@ fun DragonBallAppBar(
                     IconButton(onClick = { menuExpand = true }) {
                         Icon(
                             Icons.Default.MoreVert,
-                            contentDescription = "Menu",
+                            contentDescription = stringResource(R.string.menu_tooltip),
                             tint = Red
                         )
                     }
@@ -121,7 +122,7 @@ fun DragonBallAppBar(
                     shape = RoundedCornerShape(8.dp)
                 ) {
                     DropdownMenuItem(
-                        text = { Text("Planets", color = Red) },
+                        text = { Text(stringResource(R.string.menu_planets), color = Red) },
                         onClick = { onMenuItemClick("Planets"); menuExpand = false }
                     )
                 }
@@ -147,7 +148,7 @@ fun DragonBallAppBar(
                 },
                 tooltip = {
                     PlainTooltip {
-                        Text("Settings")
+                        Text(stringResource(R.string.settings_tooltip))
                     }
                 },
                 state = remember { TooltipState() }
@@ -155,7 +156,7 @@ fun DragonBallAppBar(
                 IconButton(onClick = onSettingsClick) {
                     Icon(
                         Icons.Default.Settings,
-                        contentDescription = "Settings",
+                        contentDescription = stringResource(R.string.settings_tooltip),
                         tint = Red
                     )
                 }

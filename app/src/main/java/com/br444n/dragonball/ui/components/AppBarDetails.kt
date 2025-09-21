@@ -12,6 +12,8 @@ import androidx.compose.ui.unit.TextUnit
 import com.br444n.dragonball.ui.theme.Gold
 import com.br444n.dragonball.ui.theme.Orange2
 import com.br444n.dragonball.ui.theme.Red
+import androidx.compose.ui.res.stringResource
+import com.br444n.dragonball.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -39,7 +41,7 @@ fun CharacterDetailAppBar(
                 IconButton(onClick = onBackClick) {
                     Icon(
                         imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                        contentDescription = "Back",
+                        contentDescription = stringResource(R.string.back),
                         tint = Red
                     )
                 }

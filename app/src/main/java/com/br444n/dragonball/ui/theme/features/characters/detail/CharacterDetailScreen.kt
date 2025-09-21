@@ -2,8 +2,7 @@ package com.br444n.dragonball.ui.theme.features.characters.detail
 import android.os.Build
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.LazyRow
-import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
@@ -21,7 +20,8 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.AsyncImage
 import com.br444n.dragonball.data.remote.models.Character
 import com.br444n.dragonball.data.remote.models.Transformation
-
+import androidx.compose.ui.res.stringResource
+import com.br444n.dragonball.R
 import com.br444n.dragonball.ui.components.CharacterDetailAppBar
 import com.br444n.dragonball.ui.components.ErrorUiState
 import com.br444n.dragonball.ui.components.NoInternetConnectionState
@@ -47,7 +47,7 @@ fun CharacterDetailScreen(
             CharacterDetailAppBar(
                 title = when (uiState) {
                     is CharacterDetailUiState.Success -> (uiState as CharacterDetailUiState.Success).character.name
-                    else -> "Character Details"
+                    else -> stringResource(R.string.character_details)
                 },
                 onBackClick = onBackClick,
                 titleColor = Red
@@ -184,21 +184,21 @@ private fun CharacterDetailContent(
 
             // Cards de información
             CharacterInfoCard(
-                title = "Basic Information",
+                title = stringResource(R.string.basic_information),
                 items = listOf(
-                    "Race" to (character.race ?: "Unknown"),
-                    "Gender" to (character.gender ?: "Unknown"),
-                    "Affiliation" to (character.affiliation ?: "Unknown")
+                    stringResource(R.string.race) to (character.race ?: stringResource(R.string.unknown)),
+                    stringResource(R.string.gender) to (character.gender ?: stringResource(R.string.unknown)),
+                    stringResource(R.string.affiliation) to (character.affiliation ?: stringResource(R.string.unknown))
                 )
             )
 
             Spacer(modifier = Modifier.height(16.dp))
 
             CharacterInfoCard(
-                title = "Power Level",
+                title = stringResource(R.string.power_level),
                 items = listOf(
-                    "Ki" to (character.ki ?: "Unknown"),
-                    "Max Ki" to (character.maxKi ?: "Unknown")
+                    stringResource(R.string.ki) to (character.ki ?: stringResource(R.string.unknown)),
+                    stringResource(R.string.max_ki) to (character.maxKi ?: stringResource(R.string.unknown))
                 )
             )
 
@@ -217,7 +217,7 @@ private fun CharacterDetailContent(
                         modifier = Modifier.padding(20.dp)
                     ) {
                         Text(
-                            text = "Description",
+                            text = stringResource(R.string.description),
                             style = MaterialTheme.typography.titleMedium,
                             fontWeight = FontWeight.Bold,
                             color = Orange
@@ -300,7 +300,7 @@ private fun CharacterInfoCard(
 private fun TransformationsCarousel(transformations: List<Transformation>) {
     Column {
         Text(
-            text = "Transformations",
+            text = stringResource(R.string.transformations),
             style = MaterialTheme.typography.titleLarge,
             fontWeight = FontWeight.Bold,
             color = Orange,

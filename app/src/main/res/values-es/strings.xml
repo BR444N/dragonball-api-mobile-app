@@ -25,8 +25,17 @@
     <string name="dark_mode_description">Cambiar entre tema claro y oscuro</string>
     <string name="language">Idioma</string>
     <string name="select_language">Seleccionar Idioma</string>
-    <string name="translate_content">Traducir Contenido</string>
-    <string name="translate_content_description">Usar ML Kit para traducir descripciones y nombres de personajes</string>
+    
+    <!-- Language Settings -->
+    <string name="interface_language">Idioma de la Interfaz</string>
+    <string name="content_language">Idioma del Contenido</string>
+    <string name="select_interface_language">Seleccionar Idioma de Interfaz</string>
+    <string name="select_content_language">Seleccionar Idioma de Contenido</string>
+    <string name="content_in_spanish">Contenido en Español</string>
+    <string name="content_in_english">Contenido en Inglés</string>
+    <string name="language_disclaimer_content_spanish">Nota: El contenido se muestra en español según lo proporciona la API</string>
+    <string name="language_disclaimer_content_english">Nota: El contenido se muestra en inglés según lo proporciona la API</string>
+
     
     <!-- Languages -->
     <string name="english">English</string>
@@ -40,11 +49,41 @@
     <string name="app_description">Explora el universo de Dragon Ball con información detallada de personajes, transformaciones y datos de planetas.</string>
     <string name="version">Versión 1.0.0</string>
     
+    <!-- Tooltips -->
+    <string name="menu_tooltip">Menú</string>
+    <string name="settings_tooltip">Configuración</string>
+    <string name="back_tooltip">Atrás</string>
+    
+    <!-- Menu Items -->
+    <string name="menu_planets">Planetas</string>
+    
+    <!-- Character Detail Labels -->
+    <string name="basic_information_title">Información Básica</string>
+    <string name="power_level_title">Nivel de Poder</string>
+    <string name="description_title">Descripción</string>
+    <string name="transformations_title">Transformaciones</string>
+    
     <!-- Common -->
-    <string name="loading">Cargando...</string>
+    <string name="loading">Cargando…</string>
     <string name="error">Error</string>
     <string name="retry">Reintentar</string>
     <string name="no_internet">Sin Conexión a Internet</string>
     <string name="refresh">Actualizar</string>
     <string name="back">Atrás</string>
+    
+    <!-- Planets -->
+    <string name="no_planets_found">No se encontraron planetas</string>
+    <string name="destroyed">Destruido</string>
+    <string name="active">Activo</string>
+    <string name="planet_id">ID del Planeta</string>
+    <string name="show_more">Mostrar más</string>
+    <string name="show_less">Mostrar menos</string>
+    <string name="expand">Expandir</string>
+    <string name="collapse">Contraer</string>
+    
+    <!-- Error States -->
+    <string name="error_prefix">Error:</string>
+    <string name="go_back">Volver</string>
+    <string name="no_internet_title">Sin Conexión a Internet</string>
+    <string name="no_internet_message">Por favor verifica tu conexión a internet e intenta de nuevo</string>
 </resources>

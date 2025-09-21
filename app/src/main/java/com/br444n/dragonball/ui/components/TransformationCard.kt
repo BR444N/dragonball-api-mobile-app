@@ -15,6 +15,8 @@ import coil.compose.AsyncImage
 import com.br444n.dragonball.data.remote.models.Transformation
 import com.br444n.dragonball.ui.theme.Gold
 import com.br444n.dragonball.ui.theme.Orange
+import androidx.compose.ui.res.stringResource
+import com.br444n.dragonball.R
 
 // Configuración de texto basada en longitud del nombre
 private data class TextConfig(
@@ -81,7 +83,7 @@ fun TransformationCard(transformation: Transformation) {
             if (!transformation.ki.isNullOrBlank()) {
                 Spacer(modifier = Modifier.height(4.dp))
                 Text(
-                    text = "Ki: ${transformation.ki}",
+                    text = "${stringResource(R.string.ki)}: ${transformation.ki}",
                     style = MaterialTheme.typography.bodySmall,
                     color = Gold,
                     textAlign = TextAlign.Center,

@@ -25,8 +25,16 @@
     <string name="dark_mode_description">Switch between light and dark theme</string>
     <string name="language">Language</string>
     <string name="select_language">Select Language</string>
-    <string name="translate_content">Translate Content</string>
-    <string name="translate_content_description">Use ML Kit to translate character descriptions and names</string>
+    
+    <!-- Language Settings -->
+    <string name="interface_language">Interface Language</string>
+    <string name="content_language">Content Language</string>
+    <string name="select_interface_language">Select Interface Language</string>
+    <string name="select_content_language">Select Content Language</string>
+    <string name="content_in_spanish">Content in Spanish</string>
+    <string name="content_in_english">Content in English</string>
+    <string name="language_disclaimer_content_spanish">Note: Content is displayed in Spanish as provided by the API</string>
+    <string name="language_disclaimer_content_english">Note: Content is displayed in English as provided by the API</string>
     
     <!-- Languages -->
     <string name="english">English</string>
@@ -40,11 +48,41 @@
     <string name="app_description">Explore the Dragon Ball universe with detailed character information, transformations, and planet data.</string>
     <string name="version">Version 1.0.0</string>
     
+    <!-- Tooltips -->
+    <string name="menu_tooltip">Menu</string>
+    <string name="settings_tooltip">Settings</string>
+    <string name="back_tooltip">Back</string>
+    
+    <!-- Menu Items -->
+    <string name="menu_planets">Planets</string>
+    
+    <!-- Character Detail Labels -->
+    <string name="basic_information_title">Basic Information</string>
+    <string name="power_level_title">Power Level</string>
+    <string name="description_title">Description</string>
+    <string name="transformations_title">Transformations</string>
+    
     <!-- Common -->
-    <string name="loading">Loading...</string>
+    <string name="loading">Loading…</string>
     <string name="error">Error</string>
     <string name="retry">Retry</string>
     <string name="no_internet">No Internet Connection</string>
     <string name="refresh">Refresh</string>
     <string name="back">Back</string>
+    
+    <!-- Planets -->
+    <string name="no_planets_found">No planets found</string>
+    <string name="destroyed">Destroyed</string>
+    <string name="active">Active</string>
+    <string name="planet_id">Planet ID</string>
+    <string name="show_more">Show more</string>
+    <string name="show_less">Show less</string>
+    <string name="expand">Expand</string>
+    <string name="collapse">Collapse</string>
+    
+    <!-- Error States -->
+    <string name="error_prefix">Error:</string>
+    <string name="go_back">Go Back</string>
+    <string name="no_internet_title">No Internet Connection</string>
+    <string name="no_internet_message">Please check your internet connection and try again</string>
 </resources>

@@ -35,6 +35,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.br444n.dragonball.data.remote.models.Character
+import androidx.compose.ui.res.stringResource
+import com.br444n.dragonball.R
 import com.br444n.dragonball.ui.components.DragonBallAppBar
 import com.br444n.dragonball.ui.theme.Gold
 import com.br444n.dragonball.ui.theme.Orange
@@ -146,7 +148,7 @@ fun CharacterCardFullScreen(
                 fontWeight = FontWeight.Bold
             )
             Text(
-                text = "Race: ${character.race ?: "Unknown"}",
+                text = "${stringResource(R.string.race)}: ${character.race ?: stringResource(R.string.unknown)}",
                 style = MaterialTheme.typography.bodyMedium,
                 modifier = Modifier.padding(horizontal = 16.dp),
                 textAlign = TextAlign.Center,
@@ -154,7 +156,7 @@ fun CharacterCardFullScreen(
                 fontWeight = FontWeight.Medium
             )
             Text(
-                text = "Affiliation: ${character.affiliation ?: "Unknown"}",
+                text = "${stringResource(R.string.affiliation)}: ${character.affiliation ?: stringResource(R.string.unknown)}",
                 style = MaterialTheme.typography.bodyMedium,
                 modifier = Modifier.padding(horizontal = 16.dp, vertical = 12.dp),
                 textAlign = TextAlign.Center,
