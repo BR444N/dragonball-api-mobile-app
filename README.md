@@ -31,9 +31,9 @@ git clone https://github.com/BR444N/dragonball-api-mobile-app.git
 
 # 📦 Stack
 
-- **Jetpack Compose**:
-- **Kotlin**:
-- **ML Kit**:
-- **Lottie**:
+- **Jetpack Compose**: Declarative UI toolkit. 
+- **Kotlin**: Main Programming Language.
+- **ML Kit**: Translation for the texts API.
+- **Lottie**: 
 - **Material Design 3**:
-- **API**: 
+- **Retrofil & GSON**: 
