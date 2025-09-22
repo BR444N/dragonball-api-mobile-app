@@ -32,6 +32,9 @@ Mobile application developed in Kotlin using Jetpack Compose for the user interf
 - **Material Design 3**: Material Design 3 for modern, adaptive, and accessible visual components.
 - **Retrofil & GSON**: Retrofit y GSON para consumir la API REST.
 
+# 📸 Screenshots
+
+
 
 # ⬇️ Download
 
