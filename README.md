@@ -23,12 +23,6 @@ Mobile application developed in Kotlin using Jetpack Compose for the user interf
 - ♿ **Accessibility**: Includes **descriptions for UI elements** to support screen readers and other accessibility features.    
 - 📱 **Adaptive Design**: The UI is designed to **adapt to different screen sizes and orientations**.
 
-# ⬇️ Download
-
-```bash
-git clone https://github.com/BR444N/dragonball-api-mobile-app.git
-```
-
 # 📦 Stack
 
 - **Jetpack Compose**: Modern toolkit for building native UI with declarative syntax.
@@ -38,4 +32,15 @@ git clone https://github.com/BR444N/dragonball-api-mobile-app.git
 - **Material Design 3**: Material Design 3 for modern, adaptive, and accessible visual components.
 - **Retrofil & GSON**: Retrofit y GSON para consumir la API REST.
 
-  
+
+# ⬇️ Download
+
+```bash
+git clone https://github.com/BR444N/dragonball-api-mobile-app.git
+```
+
+1. Open the project in the latest version of Android Studio.
+
+2. Wait for Gradle to sync all dependencies.
+
+3. Run the application on an emulator or physical device.
