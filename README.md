@@ -14,7 +14,7 @@ Mobile application developed in Kotlin using Jetpack Compose for the user interf
 # 📖 About the API
 This mobile app consumes the [Dragon Ball API](https://web.dragonball-api.com/) to display characters and their transformations.
 
-**API Documentation:** https://dragonball-api.com/
+**API Documentation:** https://web.dragonball-api.com/documentation
 
 # ✨ App Features
 
