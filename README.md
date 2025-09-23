@@ -11,7 +11,10 @@
 # 🐉 Dragonball-Characters-Mobile-App
 Mobile application developed in Kotlin using Jetpack Compose for the user interface. This project consumes the Dragon Ball API to display relevant information about characters, their transformations, and other data from the Dragon Ball universe. The app includes features such as screen navigation, light/dark theme, and language support.
 
+# 📖 About the API
+This mobile app consumes the [Dragon Ball API](https://web.dragonball-api.com/) to display characters and their transformations.
 
+**API Documentation:** https://dragonball-api.com/
 
 # ✨ App Features
 
@@ -47,3 +50,7 @@ git clone https://github.com/BR444N/dragonball-api-mobile-app.git
 2. Wait for Gradle to sync all dependencies.
 
 3. Run the application on an emulator or physical device.
+
+
+# 🙋‍♂️ Autor
+[BR444N](https://github.com/BR444N)
