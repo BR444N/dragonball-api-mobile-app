@@ -16,6 +16,10 @@ This mobile app consumes the [Dragon Ball API](https://web.dragonball-api.com/) 
 
 **API Documentation:** https://web.dragonball-api.com/documentation
 
+<p align="center">
+  <img src="images/dragonBallAPI.png" alt="Dragon Ball API Banner" width="400"/>
+</p>
+
 # ✨ App Features
 
 - 🎨 **Theming**: The app supports both **light** and **dark themes**, allowing users to choose their preferred visual style.  
