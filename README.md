@@ -17,7 +17,7 @@ This mobile app consumes the [Dragon Ball API](https://web.dragonball-api.com/) 
 **API Documentation:** https://web.dragonball-api.com/documentation
 
 <p align="center">
-  <img src="images/dragonBallAPI.png" alt="Dragon Ball API Banner" width="400"/>
+  <img src="images/dragonBallAPI.png" alt="Dragon Ball API Banner" />
 </p>
 
 # ✨ App Features
