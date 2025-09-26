@@ -45,23 +45,40 @@ This mobile app consumes the [Dragon Ball API](https://web.dragonball-api.com/) 
 
 <div align="center">
 
-### 💫 Splash Screen
-The first screen users see when openning the application.
-<img src="images/splashScreen.png" alt="Splash Screen" width="300"/>
+### Navigation Guide:
+**Click on any screenshot to jump to its detailed description below.**
 
-### 🏠 Main Screen
-The main screen to view and navigate through Dragon Ball character cards with brief information.
-<img src="images/infoCharacter.png" alt="Home Screen" width="300"/>
+<img src="images/splashScreen.png" alt="1. Splash Screen" width="200" style="margin: 10px;" title="Click to view description"/>
+<img src="images/infoCharacter.png" alt="2. Main Screen" width="200" style="margin: 10px;" title="Click to view description"/>  
+<img src="images/settings.png" alt="3. Settings Menu" width="200" style="margin: 10px;" title="Click to view description"/>
+<img src="images/viewPlanets.png" alt="4. Planets Card" width="200" style="margin: 10px;" title="Click to view description"/>
 
-### ⚙️ Settings Menu
-A detailed view of configurable settings including theme selection and language switching between English and Spanish.
-<img src="images/settings.png" alt="Settings Menu" width="300"/>
 </div>
 
-### 📝 Planets Card
-The interface to view the details of planets from the Dragon Ball world.
-<img src="images/viewPlanets.png" alt="Planets Interface" width="300"/>
+---
 
+## 📋 Detailed Descriptions
+
+### 1. 💫 Splash Screen
+**File:** `splashScreen.png`  
+The first screen users see when opening the application. Displays the app logo and brand identity during initial loading.
+
+### 2. 🏠 Main Screen  
+**File:** `infoCharacter.png`  
+The main screen to view and navigate through Dragon Ball character cards with brief information. This is the home dashboard of the application.
+
+### 3. ⚙️ Settings Menu
+**File:** `settings.png`  
+A detailed view of configurable settings including theme selection and language switching between English and Spanish.
+
+### 4. 📝 Planets Card
+**File:** `viewPlanets.png`  
+The interface to view the details of planets from the Dragon Ball world, showing planetary characteristics and information.
+
+---
+
+<div align="center">
+*Scroll up to view the screenshots gallery*
 </div>
 
 # ⬇️ Download
