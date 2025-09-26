@@ -54,6 +54,10 @@ A detailed view of configurable settings including theme selection and language 
 <img src="images/settings.png" alt="Settings Menu" width="300"/>
 </div>
 
+### 📝 Planets Card
+The interface to view the details of planets from the Dragon Ball world.
+<img src="images/viewPlanets" alt="Create New Post" width="300"/>
+
 # ⬇️ Download
 
 ```bash
