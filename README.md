@@ -46,7 +46,7 @@ This mobile app consumes the [Dragon Ball API](https://web.dragonball-api.com/) 
 <div align="center">
 
 ### Navigation Guide:
-**Click on any screenshot to jump to its detailed description below.**
+**Click on any screenshot to view it in a full size.**
 
 <img src="images/splashScreen.png" alt="1. Splash Screen" width="200" style="margin: 10px;" title="Click to view description"/>
 <img src="images/infoCharacter.png" alt="2. Main Screen" width="200" style="margin: 10px;" title="Click to view description"/>  
@@ -74,12 +74,6 @@ A detailed view of configurable settings including theme selection and language 
 ### 4. 📝 Planets Card
 **File:** `viewPlanets.png`  
 The interface to view the details of planets from the Dragon Ball world, showing planetary characteristics and information.
-
----
-
-<div align="center">
-*Scroll up to view the screenshots gallery*
-</div>
 
 # ⬇️ Download
 
