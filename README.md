@@ -41,7 +41,13 @@ This mobile app consumes the [Dragon Ball API](https://web.dragonball-api.com/) 
 
 # 📸 Screenshots
 
+<div align="center">
 
+### 🏠 Splash Screen
+The first screen users see when openning the application.
+<img src="images/splashScreen.png" alt="Splash Screen" width="300"/>
+
+</div>
 
 # ⬇️ Download
 
