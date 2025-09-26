@@ -56,7 +56,7 @@ A detailed view of configurable settings including theme selection and language 
 
 ### 📝 Planets Card
 The interface to view the details of planets from the Dragon Ball world.
-<img src="images/viewPlanets,png" alt="Create New Post" width="300"/>
+<img src="images/viewPlanets.png" alt="Planets Interface" width="300"/>
 
 # ⬇️ Download
 
