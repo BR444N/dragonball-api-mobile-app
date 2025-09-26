@@ -18,6 +18,8 @@ This mobile app consumes the [Dragon Ball API](https://web.dragonball-api.com/) 
 
 <p align="center">
   <img src="images/dragonBallAPI.png" alt="Dragon Ball API Banner" />
+
+  
 </p>
 
 # ✨ App Features
@@ -47,6 +49,9 @@ This mobile app consumes the [Dragon Ball API](https://web.dragonball-api.com/) 
 The first screen users see when openning the application.
 <img src="images/splashScreen.png" alt="Splash Screen" width="300"/>
 
+### ⚙️ Settings Menu
+A detailed view of configurable settings including theme selection and language switching between English and Spanish.
+<img src="images/settings.png" alt="Settings Menu" width="300"/>
 </div>
 
 # ⬇️ Download
