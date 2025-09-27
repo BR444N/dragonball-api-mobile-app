@@ -8,13 +8,13 @@ junitVersion = "1.3.0"
 espressoCore = "3.7.0"
 lifecycleRuntimeKtx = "2.9.4"
 activityCompose = "1.11.0"
-composeBom = "2025.09.00"
+composeBom = "2025.09.01"
 material = "1.13.0"
 
 #MaterialIconsExtended
 materialIconsExtended = "1.7.8"
 #NavigationCompose
-navigationCompose = "2.9.4"
+navigationCompose = "2.9.5"
 #ViewModel & LiveData
 lifecycleViewModel = "2.9.4"
 #Retrofit + Gson
@@ -29,6 +29,12 @@ lottie = "6.6.9"
 splashScreen = "1.0.1"
 #ML Kit Translate
 translate = "17.0.3"
+
+#Testing
+mockk = "1.14.5"
+coroutinesTest = "1.10.2"
+turbine = "1.2.1"
+robolectric = "4.16"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -77,6 +83,12 @@ splashScreen = { group = "androidx.core", name = "core-splashscreen", version.re
 
 #ML Kit Translate
 translate = { module = "com.google.mlkit:translate", version.ref = "translate" }
+
+#Testing
+mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
+kotlinx-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "coroutinesTest" }
+turbine = { group = "app.cash.turbine", name = "turbine", version.ref = "turbine" }
+robolectric = { group = "org.robolectric", name = "robolectric", version.ref = "robolectric" }
 
 
 [plugins]

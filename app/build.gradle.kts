@@ -20,11 +20,30 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
+            isShrinkResources = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                "proguard-rules-final.pro"
             )
+        }
+        debug {
+            isMinifyEnabled = false
+            isShrinkResources = false
+            isDebuggable = true
+        }
+    }
+    
+    testOptions {
+        unitTests {
+            isIncludeAndroidResources = true
+        }
+    }
+    
+    packaging {
+        resources {
+            excludes += "/META-INF/{AL2.0,LGPL2.1}"
+            excludes += "/META-INF/gradle/incremental.annotation.processors"
         }
     }
     compileOptions {
@@ -87,6 +106,10 @@ android {
 
         // ---- Dependencias de Pruebas Unitarias (testImplementation) ----
         testImplementation(libs.junit)
+        testImplementation(libs.mockk)
+        testImplementation(libs.kotlinx.coroutines.test)
+        testImplementation(libs.turbine)
+        testImplementation(libs.robolectric)
 
         // ---- Dependencias de Pruebas de Instrumentación (androidTestImplementation) ----
         androidTestImplementation(libs.androidx.junit)

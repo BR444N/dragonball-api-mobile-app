@@ -123,7 +123,7 @@ private fun CharacterDetailContent(
             AsyncImage(
                 model = character.image,
                 contentDescription = null,
-                contentScale = ContentScale.Crop,
+                contentScale = ContentScale.Fit,
                 colorFilter = ColorFilter.tint(Gold.copy(alpha = 0.3f), BlendMode.SrcAtop),
                 modifier = Modifier
                     .fillMaxSize()

@@ -119,7 +119,7 @@ fun CharacterCardFullScreen(
                     model = character.image,
                     contentDescription = null,
                     contentScale = ContentScale.Fit,
-                    colorFilter = ColorFilter.tint(Gold, BlendMode.SrcAtop),
+                    colorFilter = ColorFilter.tint(Orange, BlendMode.SrcAtop),
                     modifier = Modifier
                         .matchParentSize()
                         .graphicsLayer {
