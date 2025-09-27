@@ -4,10 +4,18 @@
   <a href="https://github.com/BR444N/dragonball-api-mobile-app/blob/main/LICENSE">
     <img alt="License" src="https://img.shields.io/badge/License-MIT-yellow.svg"/>
   </a>
-  <img alt="Min SDK" src="https://img.shields.io/badge/minSdk-26-blue.svg"/>
-  <img alt="Target SDK" src="https://img.shields.io/badge/targetSdk-34-orange.svg"/>
-  <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-brightgreen.svg"/>
-  <img alt="Kotlin" src="https://img.shields.io/badge/Kotlin-0095D5?logo=kotlin&logoColor=white"/>
+  <a href="https://github.com/BR444N/dragonball-api-mobile-app/releases">
+    <img alt="Version" src="https://img.shields.io/github/v/release/BR444N/dragonball-api-mobile-app"/>
+  </a>
+  <a href="https://github.com/BR444N/dragonball-api-mobile-app/blob/main/app/build.gradle">
+    <img alt="Min SDK" src="https://img.shields.io/badge/minSdk-26-blue.svg"/>
+  </a>
+  <a href="https://github.com/BR444N/dragonball-api-mobile-app/blob/main/app/build.gradle">
+    <img alt="Target SDK" src="https://img.shields.io/badge/targetSdk-34-orange.svg"/>
+  </a>
+  <a href="https://github.com/BR444N/dragonball-api-mobile-app/blob/main/app/build.gradle">
+    <img alt="Kotlin" src="https://img.shields.io/badge/Kotlin-0095D5?logo=kotlin&logoColor=white"/>
+  </a>
 </p>
 
 # 🐉 Dragonball-Characters-Mobile-App
