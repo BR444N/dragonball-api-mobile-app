@@ -4,17 +4,14 @@
   <a href="https://github.com/BR444N/dragonball-api-mobile-app/blob/main/LICENSE">
     <img alt="License" src="https://img.shields.io/badge/License-MIT-yellow.svg"/>
   </a>
-  <a href="https://github.com/BR444N/dragonball-api-mobile-app/releases">
-    <img alt="Version" src="https://img.shields.io/github/v/release/BR444N/dragonball-api-mobile-app"/>
+  <a href="https://github.com/BR444N/dragonball-api-mobile-app/blob/main/app/build.gradle">
+    <img alt="Min SDK" />
   </a>
   <a href="https://github.com/BR444N/dragonball-api-mobile-app/blob/main/app/build.gradle">
-    <img alt="Min SDK" src="https://img.shields.io/badge/minSdk-26-blue.svg"/>
+    <img alt="Target SDK" />
   </a>
   <a href="https://github.com/BR444N/dragonball-api-mobile-app/blob/main/app/build.gradle">
-    <img alt="Target SDK" src="https://img.shields.io/badge/targetSdk-34-orange.svg"/>
-  </a>
-  <a href="https://github.com/BR444N/dragonball-api-mobile-app/blob/main/app/build.gradle">
-    <img alt="Kotlin" src="https://img.shields.io/badge/Kotlin-0095D5?logo=kotlin&logoColor=white"/>
+    <img alt="Kotlin" />
   </a>
 </p>
 
