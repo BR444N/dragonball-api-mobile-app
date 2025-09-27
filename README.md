@@ -49,7 +49,7 @@ This mobile app consumes the [Dragon Ball API](https://web.dragonball-api.com/) 
 **Click on any screenshot to view it in a full size.**
 
 <img src="images/splashScreen.png" alt="1. Splash Screen" width="200" style="margin: 10px;" title="SplashScreen"/>
-<img src="images/mainSreen.png" alt="2. Main Screen" width="200" style="margin: 10px;" title="MainScreen"/>  
+<img src="images/mainScreen.png" alt="2. Main Screen" width="200" style="margin: 10px;" title="MainScreen"/>  
 <img src="images/settings.png" alt="3. Settings Menu" width="200" style="margin: 10px;" title="Settings"/>
 <img src="images/viewPlanets.png" alt="4. Planets Card" width="200" style="margin: 10px;" title="Planets Card"/>
 
