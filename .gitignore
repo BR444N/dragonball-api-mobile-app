@@ -13,3 +13,7 @@
 .externalNativeBuild
 .cxx
 local.properties
+.kiro
+.vscode
+.kotlin
+/test_release_build.md
