@@ -64,7 +64,7 @@ This mobile app consumes the [Dragon Ball API](https://web.dragonball-api.com/) 
 
 ---
 
-## 📋 Detailed Descriptions
+# 📋 Detailed Descriptions
 
 ### 1. 💫 Splash Screen
 **File:** `splashScreen.png`  
