@@ -25,7 +25,7 @@ Mobile application developed in Kotlin using Jetpack Compose for the user interf
 - [📖 About the API](#-about-the-api)
 - [✨ App Features](#-app-features)
 - [📦 Stack](#-stack)
-- [# 📸 Screenshots](#-screenshots)
+- [📸 Screenshots](#-screenshots)
 - [📋 Detailed Descriptions](#-detailed-descriptions)
 - [⬇️ Download](#-downloads)
 - [🙋‍♂️ Autor](#-autor)
