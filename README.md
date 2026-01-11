@@ -2,10 +2,10 @@
 
 <p align="center">
   <a href="https://github.com/BR444N/dragonball-api-mobile-app/blob/main/LICENSE">
-    <img alt="License" src="https://img.shields.io/badge/License-MIT-yellow.svg"/>
+    <img alt="License" src="https://img.shields.io/badge/License-MIT-orange.svg"/>
   </a>
   <a href="https://github.com/BR444N/dragonball-api-mobile-app/blob/main/build.gradle.kts">
-    <img alt="Min SDK" src="https://img.shields.io/badge/minSdk-26-blue.svg"/>
+    <img alt="Min SDK" src="https://img.shields.io/badge/minSdk-26-orange.svg"/>
   </a>
   <a href="https://github.com/BR444N/dragonball-api-mobile-app/blob/main/build.gradle.kts">
     <img alt="Target SDK" src="https://img.shields.io/badge/targetSdk-36-orange.svg"/>
