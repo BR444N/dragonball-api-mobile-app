@@ -20,7 +20,7 @@ Mobile application developed in Kotlin using Jetpack Compose for the user interf
 
 ---
 
-## 📖 Tabla de Contenidos
+## 📖 Table Contents
 
 - [📖 About the API](#-about-the-api)
 - [✨ App Features](#-app-features)
