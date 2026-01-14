@@ -109,5 +109,5 @@ git clone https://github.com/BR444N/dragonball-api-mobile-app.git
 3. Run the application on an emulator or physical device.
 
 
-# 🙋‍♂️ Autor
+# 🙋‍♂️ Author
 [BR444N](https://github.com/BR444N)
