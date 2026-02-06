@@ -2,16 +2,14 @@
 
 <p align="center">
   <a href="https://github.com/BR444N/dragonball-api-mobile-app/blob/main/LICENSE">
-    <img alt="License" src="https://img.shields.io/badge/License-MIT-orange.svg"/>
+    <img alt="License" src="https://img.shields.io/badge/License-MIT-FF6D00.svg?style=for-the-badge&logo=open-source-initiative&logoColor=white"/>
   </a>
-  <a href="https://github.com/BR444N/dragonball-api-mobile-app/blob/main/build.gradle.kts">
-    <img alt="Min SDK" src="https://img.shields.io/badge/minSdk-26-orange.svg"/>
+  <img alt="Min SDK" src="https://img.shields.io/badge/minSdk-26-FF6D00.svg?style=for-the-badge&logo=android&logoColor=white"/>
+  <a href="https://kotlinlang.org/">
+    <img alt="Kotlin" src="https://img.shields.io/badge/Kotlin-FF6D00.svg?style=for-the-badge&logo=kotlin&logoColor=white"/>
   </a>
-  <a href="https://github.com/BR444N/dragonball-api-mobile-app/blob/main/build.gradle.kts">
-    <img alt="Target SDK" src="https://img.shields.io/badge/targetSdk-36-orange.svg"/>
-  </a>
-  <a href="https://github.com/BR444N/dragonball-api-mobile-app/blob/main/build.gradle.kts">
-    <img alt="Kotlin" src="https://img.shields.io/badge/Kotlin-37005e?logo=kotlin&logoColor=white"/>
+  <a href="https://www.figma.com/design/iHuIX9FYvlMLLPAq8J36bn/DRAGON-BALL-MOBILE-APP?node-id=0-1&t=OdQVQSO26rbj5y3O-1">
+    <img alt="Figma" src="https://img.shields.io/badge/Figma-FF6D00.svg?style=for-the-badge&logo=figma&logoColor=white"/>
   </a>
 </p>
 
